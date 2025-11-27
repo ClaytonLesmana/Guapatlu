@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -6,16 +6,54 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
 const AboutBakmi = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const features = [
+    { id: 1, text: "Berasal dari Jambi, Sumatra" },
+    { id: 2, text: "Pengaruh Tionghoa Hokkien" },
+    { id: 3, text: "Ciri Khas: Minyak Hitam Gurih, Rasa Bold, Pedas Segar" },
+  ];
+
   return (
-    <Box sx={{ py: 8, bgcolor: "background.default" }}>
+    <Box ref={sectionRef} sx={{ py: 8, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="https://source.unsplash.com/random/600x400/?noodles,asian"
+              src="/Kuah Jambi.jpg"
               alt="Bakmi Jambi"
-              sx={{ width: "100%", borderRadius: 2, boxShadow: 3 }}
+              sx={{
+                width: "100%",
+                borderRadius: 2,
+                boxShadow: 3,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateX(0)" : "translateX(-50px)",
+                transition: "all 0.8s ease-out",
+              }}
             />
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
@@ -23,7 +61,13 @@ const AboutBakmi = () => {
               variant="h6"
               color="primary.main"
               gutterBottom
-              sx={{ fontWeight: "bold", textTransform: "uppercase" }}
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "all 0.6s ease-out",
+              }}
             >
               What is Bakmi Jambi?
             </Typography>
@@ -31,14 +75,25 @@ const AboutBakmi = () => {
               variant="h3"
               component="h2"
               gutterBottom
-              sx={{ fontWeight: "bold" }}
+              sx={{
+                fontWeight: "bold",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "all 0.6s ease-out 0.1s",
+              }}
             >
               Lebih dari Sekadar Mie
             </Typography>
             <Typography
               variant="body1"
               paragraph
-              sx={{ fontSize: "1.1rem", color: "text.secondary" }}
+              sx={{
+                fontSize: "1.1rem",
+                color: "text.secondary",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(20px)",
+                transition: "all 0.6s ease-out 0.2s",
+              }}
             >
               Bakmi Jambi adalah mie tradisional khas Jambi, Indonesia.
               Teksturnya lebih kenyal, disajikan dengan minyak hitam gurih
@@ -47,44 +102,55 @@ const AboutBakmi = () => {
             </Typography>
 
             <Box sx={{ mt: 3 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 2,
-                  bgcolor: "grey.100",
-                  mb: 2,
-                  borderLeft: "4px solid #d11919",
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                  Berasal dari Jambi, Sumatra
-                </Typography>
-              </Paper>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 2,
-                  bgcolor: "grey.100",
-                  mb: 2,
-                  borderLeft: "4px solid #d11919",
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                  Pengaruh Tionghoa Hokkien
-                </Typography>
-              </Paper>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 2,
-                  bgcolor: "grey.100",
-                  borderLeft: "4px solid #d11919",
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                  Ciri Khas: Minyak Hitam Gurih, Rasa Bold, Pedas Segar
-                </Typography>
-              </Paper>
+              {features.map((feature, index) => (
+                <Paper
+                  key={feature.id}
+                  elevation={hoveredCard === feature.id ? 6 : 0}
+                  onMouseEnter={() => setHoveredCard(feature.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  sx={{
+                    p: 2,
+                    bgcolor: hoveredCard === feature.id ? "white" : "grey.100",
+                    mb: index < features.length - 1 ? 2 : 0,
+                    borderLeft:
+                      hoveredCard === feature.id
+                        ? "6px solid #d11919"
+                        : "4px solid #d11919",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    transform:
+                      hoveredCard === feature.id
+                        ? "translateX(10px) scale(1.02)"
+                        : "translateX(0) scale(1)",
+                    opacity: isVisible ? 1 : 0,
+                    animation: isVisible
+                      ? `slideIn 0.6s ease-out ${0.3 + index * 0.1}s forwards`
+                      : "none",
+                    "@keyframes slideIn": {
+                      from: {
+                        opacity: 0,
+                        transform: "translateX(-30px)",
+                      },
+                      to: {
+                        opacity: 1,
+                        transform: "translateX(0)",
+                      },
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontWeight: "bold",
+                      color:
+                        hoveredCard === feature.id ? "#d11919" : "text.primary",
+                      transition: "color 0.3s ease",
+                    }}
+                  >
+                    {feature.text}
+                  </Typography>
+                </Paper>
+              ))}
             </Box>
           </Grid>
         </Grid>

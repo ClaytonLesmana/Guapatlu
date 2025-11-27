@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const pages = [
   { name: "Home", path: "/" },
@@ -21,6 +22,7 @@ const pages = [
 ];
 
 function Navbar() {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -116,39 +118,42 @@ function Navbar() {
               justifyContent: "center",
             }}
           >
-            {pages.slice(0, 5).map((page) => (
-              <Button
-                key={page.name}
-                component={Link}
-                href={page.path}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  mx: 2,
-                  color: "white",
-                  display: "block",
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  position: "relative",
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: 8,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: 0,
-                    height: "2px",
-                    bgcolor: "white",
-                    transition: "width 0.3s ease",
-                  },
-                  "&:hover::after": {
-                    width: "80%",
-                  },
-                }}
-              >
-                {page.name}
-              </Button>
-            ))}
+            {pages.slice(0, 5).map((page) => {
+              const isActive = router.pathname === page.path;
+              return (
+                <Button
+                  key={page.name}
+                  component={Link}
+                  href={page.path}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    mx: 2,
+                    color: "white",
+                    display: "block",
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    position: "relative",
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      bottom: 4,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: isActive ? "80%" : 0,
+                      height: "2px",
+                      bgcolor: "white",
+                      transition: "width 0.3s ease",
+                    },
+                    "&:hover::after": {
+                      width: "80%",
+                    },
+                  }}
+                >
+                  {page.name}
+                </Button>
+              );
+            })}
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>

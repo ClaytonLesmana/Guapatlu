@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -12,13 +12,26 @@ import PeopleIcon from "@mui/icons-material/People";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 const HeroSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <Box sx={{ bgcolor: "white", py: 8, overflow: "hidden" }}>
       <Container maxWidth="lg">
         <Grid container spacing={6} alignItems="center">
           {/* Left Content */}
           <Grid size={{ xs: 12, md: 6 }}>
-            <Box sx={{ mb: 4 }}>
+            <Box
+              sx={{
+                mb: 4,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateX(0)" : "translateX(-50px)",
+                transition: "all 0.8s ease-out",
+              }}
+            >
               <Typography
                 component="h1"
                 variant="h2"
@@ -30,7 +43,18 @@ const HeroSection = () => {
                 }}
               >
                 Bakmi Jambi Asli <br />
-                <Box component="span" sx={{ color: "#d11919" }}>
+                <Box
+                  component="span"
+                  sx={{
+                    color: "#d11919",
+                    display: "inline-block",
+                    animation: "colorPulse 3s ease-in-out infinite",
+                    "@keyframes colorPulse": {
+                      "0%, 100%": { color: "#d11919" },
+                      "50%": { color: "#ff4444" },
+                    },
+                  }}
+                >
                   Rasa Khas
                 </Box>{" "}
                 dari Sumatra
@@ -49,7 +73,17 @@ const HeroSection = () => {
               </Typography>
             </Box>
 
-            <Box sx={{ display: "flex", gap: 2, mb: 5, flexWrap: "wrap" }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                mb: 5,
+                flexWrap: "wrap",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(30px)",
+                transition: "all 0.8s ease-out 0.2s",
+              }}
+            >
               <Button
                 variant="contained"
                 size="large"
@@ -66,7 +100,17 @@ const HeroSection = () => {
                   fontSize: "1rem",
                   fontWeight: 600,
                   boxShadow: "0 10px 20px -10px rgba(209, 25, 25, 0.5)",
-                  "&:hover": { bgcolor: "#b91616" },
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    bgcolor: "#b91616",
+                    transform: "translateY(-3px) scale(1.05)",
+                    boxShadow: "0 15px 30px -10px rgba(209, 25, 25, 0.7)",
+                  },
+                  animation: "pulse 2s ease-in-out infinite",
+                  "@keyframes pulse": {
+                    "0%, 100%": { transform: "scale(1)" },
+                    "50%": { transform: "scale(1.02)" },
+                  },
                 }}
               >
                 Lihat Menu
@@ -86,16 +130,45 @@ const HeroSection = () => {
                   textTransform: "none",
                   fontSize: "1rem",
                   fontWeight: 600,
-                  "&:hover": { borderColor: "#b91616", bgcolor: "#fff5f5" },
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    borderColor: "#b91616",
+                    bgcolor: "#fff5f5",
+                    transform: "translateY(-3px) scale(1.05)",
+                  },
                 }}
               >
                 Daftar & Dapat Gratis
               </Button>
             </Box>
 
-            <Box sx={{ display: "flex", gap: 4, alignItems: "center" }}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <StarIcon sx={{ color: "#fbbf24" }} />
+            <Box
+              sx={{
+                display: "flex",
+                gap: 4,
+                alignItems: "center",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(30px)",
+                transition: "all 0.8s ease-out 0.4s",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                  },
+                }}
+              >
+                <StarIcon
+                  sx={{
+                    color: "#fbbf24",
+                  }}
+                />
                 <Typography
                   variant="subtitle2"
                   sx={{ fontWeight: 700, color: "#0f172a" }}
@@ -103,7 +176,18 @@ const HeroSection = () => {
                   4.9/5 Rating
                 </Typography>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                  },
+                }}
+              >
                 <PeopleIcon sx={{ color: "#d11919" }} />
                 <Typography
                   variant="subtitle2"
@@ -116,7 +200,15 @@ const HeroSection = () => {
           </Grid>
 
           {/* Right Image */}
-          <Grid size={{ xs: 12, md: 6 }} sx={{ position: "relative" }}>
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              position: "relative",
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateX(0)" : "translateX(50px)",
+              transition: "all 0.8s ease-out 0.3s",
+            }}
+          >
             <Box
               component="img"
               src="/bakmi-hero.jpg"
@@ -126,8 +218,10 @@ const HeroSection = () => {
                 borderRadius: "24px",
                 boxShadow: "0 20px 40px -20px rgba(0,0,0,0.3)",
                 transform: "perspective(1000px) rotateY(-5deg)",
-                transition: "transform 0.3s ease",
-                "&:hover": { transform: "perspective(1000px) rotateY(0deg)" },
+                transition: "transform 0.5s ease",
+                "&:hover": {
+                  transform: "perspective(1000px) rotateY(0deg) scale(1.02)",
+                },
               }}
             />
 
@@ -145,6 +239,17 @@ const HeroSection = () => {
                 alignItems: "center",
                 gap: 2,
                 maxWidth: 250,
+                animation: "float 3s ease-in-out infinite",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  boxShadow: "0 15px 40px rgba(0,0,0,0.2)",
+                },
+                "@keyframes float": {
+                  "0%, 100%": { transform: "translateY(0px)" },
+                  "50%": { transform: "translateY(-10px)" },
+                },
               }}
             >
               <Box

@@ -11,6 +11,11 @@ import Button from "@mui/material/Button";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Chip from "@mui/material/Chip";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 
 const categories = ["All", "Bakmi", "Sides", "Drinks"];
 
@@ -67,12 +72,24 @@ const menuItems = [
 
 const MenuPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<any>(null);
 
   const handleCategoryChange = (
     event: React.SyntheticEvent,
     newValue: string
   ) => {
     setSelectedCategory(newValue);
+  };
+
+  const handleOpen = (item: any) => {
+    setSelectedItem(item);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedItem(null);
   };
 
   const filteredItems =
@@ -133,13 +150,15 @@ const MenuPage = () => {
 
           <Grid container spacing={4}>
             {filteredItems.map((item) => (
-              <Grid item key={item.id} xs={12} sm={6} md={4}>
+              <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>
                 <Card
+                  onClick={() => handleOpen(item)}
                   sx={{
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     transition: "0.3s",
+                    cursor: "pointer",
                     "&:hover": { transform: "translateY(-5px)", boxShadow: 6 },
                   }}
                 >
@@ -171,24 +190,120 @@ const MenuPage = () => {
                       {item.description}
                     </Typography>
                   </CardContent>
-                  <Box sx={{ p: 2, pt: 0 }}>
-                    <Button
-                      variant="outlined"
-                      fullWidth
-                      href="/online"
-                      sx={{
-                        borderColor: "primary.main",
-                        color: "primary.main",
-                        "&:hover": { bgcolor: "primary.light", color: "white" },
-                      }}
-                    >
-                      Order Now
-                    </Button>
-                  </Box>
                 </Card>
               </Grid>
             ))}
           </Grid>
+
+          {/* Sub Menu / Detail Modal */}
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            maxWidth="sm"
+            fullWidth
+            PaperProps={{
+              sx: { borderRadius: 3, overflow: "hidden" },
+            }}
+          >
+            {selectedItem && (
+              <>
+                <Box sx={{ position: "relative" }}>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={selectedItem.image}
+                    alt={selectedItem.name}
+                  />
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: "white",
+                      bgcolor: "rgba(0,0,0,0.5)",
+                      "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+                <DialogContent sx={{ p: 4 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      mb: 2,
+                    }}
+                  >
+                    <Typography variant="h4" fontWeight="bold">
+                      {selectedItem.name}
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      color="primary.main"
+                      fontWeight="bold"
+                    >
+                      {selectedItem.price}
+                    </Typography>
+                  </Box>
+                  <Typography variant="body1" color="text.secondary" paragraph>
+                    {selectedItem.description}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ mb: 4 }}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </Typography>
+
+                  <Typography variant="h6" gutterBottom fontWeight="bold">
+                    Order Now via:
+                  </Typography>
+                  <Box
+                    sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+                  >
+                    <Button
+                      variant="contained"
+                      size="large"
+                      startIcon={<DeliveryDiningIcon />}
+                      href="https://food.grab.com"
+                      target="_blank"
+                      sx={{
+                        bgcolor: "#00B14F", // Grab Green
+                        "&:hover": { bgcolor: "#009e47" },
+                        py: 1.5,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Order on GrabFood
+                    </Button>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      startIcon={<DeliveryDiningIcon />}
+                      href="https://www.gojek.com/gofood/"
+                      target="_blank"
+                      sx={{
+                        bgcolor: "#00AA13", // Gojek Green
+                        "&:hover": { bgcolor: "#00880f" },
+                        py: 1.5,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Order on GoFood
+                    </Button>
+                  </Box>
+                </DialogContent>
+              </>
+            )}
+          </Dialog>
 
           <Box
             sx={{
