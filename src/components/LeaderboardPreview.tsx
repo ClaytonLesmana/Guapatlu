@@ -54,7 +54,7 @@ const LeaderboardPreview = () => {
         </Typography>
         <Grid container spacing={4} sx={{ mt: 2, justifyContent: "center" }}>
           {topCustomers.map((customer) => (
-            <Grid item key={customer.id} xs={12} sm={6} md={4}>
+            <Grid key={customer.id} size={{ xs: 12, sm: 6, md: 4 }}>
               <Card sx={{ textAlign: "center", p: 2 }}>
                 <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
                   <Avatar

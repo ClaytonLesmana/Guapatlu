@@ -26,14 +26,20 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 4 }}>
-            <Typography
+            {/* <Typography
               variant="h6"
               color="primary.main"
               gutterBottom
               sx={{ fontWeight: "bold" }}
             >
               GUAPATLU
-            </Typography>
+            </Typography> */}
+            <Box
+              component="img"
+              src="/logo.png"
+              alt="Guapatlu Logo"
+              sx={{ height: 60, width: "auto", mb: 2 }}
+            />
             <Typography variant="body2" color="grey.400">
               Premium street-food vibe. Fresh ingredients, bold flavors, and a
               community that loves food.

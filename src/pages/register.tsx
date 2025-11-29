@@ -37,7 +37,7 @@ const RegisterPage = () => {
       <Box sx={{ py: 8, bgcolor: "background.default" }}>
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box>
                 <Typography
                   variant="h3"
@@ -92,7 +92,7 @@ const RegisterPage = () => {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Paper elevation={3} sx={{ p: 4 }}>
                 <Typography
                   variant="h4"
@@ -105,7 +105,7 @@ const RegisterPage = () => {
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <TextField
                         required
                         fullWidth
@@ -117,7 +117,7 @@ const RegisterPage = () => {
                         onChange={handleChange}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <TextField
                         required
                         fullWidth
@@ -130,7 +130,7 @@ const RegisterPage = () => {
                         onChange={handleChange}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <TextField
                         required
                         fullWidth
@@ -142,7 +142,7 @@ const RegisterPage = () => {
                         onChange={handleChange}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <TextField
                         required
                         fullWidth
