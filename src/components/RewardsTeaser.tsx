@@ -136,22 +136,7 @@ const RewardsTeaser = () => {
                       left: `${progress}%`,
                       transform: "translate(-50%, -50%)",
                     }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        bgcolor: "#d11919",
-                        color: "white",
-                        px: 1,
-                        py: 0.5,
-                        borderRadius: 1,
-                        fontWeight: 700,
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      🎉 {Math.round((progress / 100) * 1000)} pts!
-                    </Typography>
-                  </Box>
+                  ></Box>
                 )}
               </Box>
               <Typography

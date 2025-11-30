@@ -69,6 +69,27 @@ const runnersUp = [
     badge: "Regular Customer",
     badgeColor: "#5C6BC0",
   },
+  {
+    rank: 8,
+    name: "Doni Wijaya",
+    points: 1450,
+    badge: "Regular Customer",
+    badgeColor: "#5C6BC0",
+  },
+  {
+    rank: 9,
+    name: "Doni Wijaya",
+    points: 1450,
+    badge: "Regular Customer",
+    badgeColor: "#5C6BC0",
+  },
+  {
+    rank: 10,
+    name: "Doni Wijaya",
+    points: 1450,
+    badge: "Regular Customer",
+    badgeColor: "#5C6BC0",
+  },
 ];
 
 const LeaderboardPage = () => {
@@ -119,9 +140,6 @@ const LeaderboardPage = () => {
         <Box textAlign="center" mb={8}>
           <Typography variant="h4" fontWeight="bold" gutterBottom>
             Hall of Fame
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary">
-            Pelanggan terbaik bulan ini
           </Typography>
         </Box>
 

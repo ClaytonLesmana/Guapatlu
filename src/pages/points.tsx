@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
+import CircularProgress from "@mui/material/CircularProgress";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FlagIcon from "@mui/icons-material/Flag";
@@ -23,9 +24,75 @@ import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const PointsPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState<{
+    name: string;
+    phone: string;
+    dob: string;
+    total: number;
+    points: number;
+  } | null>(null);
+  const [animatedPoints, setAnimatedPoints] = useState(0);
+
+  // Animate points when userData changes
+  useEffect(() => {
+    if (userData) {
+      let start = 0;
+      const end = userData.points;
+      const duration = 1500;
+      const increment = end / (duration / 16);
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setAnimatedPoints(end);
+          clearInterval(timer);
+        } else {
+          setAnimatedPoints(Math.floor(start));
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }
+  }, [userData]);
+
+  const handleCheckPoints = async () => {
+    if (!phoneNumber.trim()) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+
+    setLoading(true);
+    setUserData(null);
+
+    try {
+      const response = await fetch("/api/points", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone: phoneNumber }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUserData(data.data);
+        toast.success(`Welcome back, ${data.data.name}!`);
+      } else {
+        toast.error(data.message || "Phone number not found");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const journeySteps = [
     { label: "Start", points: "0 poin", icon: <FlagIcon />, active: true },
@@ -183,6 +250,8 @@ const PointsPage = () => {
               <Button
                 variant="contained"
                 size="large"
+                onClick={handleCheckPoints}
+                disabled={loading}
                 sx={{
                   background:
                     "linear-gradient(45deg, #D11919 30%, #FF5722 90%)",
@@ -191,12 +260,72 @@ const PointsPage = () => {
                   fontWeight: "bold",
                   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
                   whiteSpace: "nowrap",
+                  minWidth: 140,
                 }}
               >
-                Lihat Poin
+                {loading ? (
+                  <CircularProgress size={24} sx={{ color: "white" }} />
+                ) : (
+                  "Lihat Poin"
+                )}
               </Button>
             </Box>
           </Card>
+
+          {/* User Points Display */}
+          {userData && (
+            <Card
+              elevation={4}
+              sx={{
+                p: 4,
+                borderRadius: 4,
+                textAlign: "center",
+                mb: 6,
+                background: "linear-gradient(135deg, #d11919 0%, #ff5722 100%)",
+                color: "white",
+                animation: "slideIn 0.5s ease-out",
+                "@keyframes slideIn": {
+                  from: { opacity: 0, transform: "translateY(20px)" },
+                  to: { opacity: 1, transform: "translateY(0)" },
+                },
+              }}
+            >
+              <Typography variant="h4" fontWeight="bold" gutterBottom>
+                {userData.name}
+              </Typography>
+              <Typography variant="body1" sx={{ opacity: 0.9, mb: 3 }}>
+                {userData.phone}
+              </Typography>
+
+              <Box
+                sx={{
+                  bgcolor: "rgba(255,255,255,0.2)",
+                  borderRadius: 3,
+                  p: 4,
+                  mb: 2,
+                }}
+              >
+                <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
+                  Your Points
+                </Typography>
+                <Typography
+                  variant="h1"
+                  fontWeight="bold"
+                  sx={{
+                    fontSize: { xs: "3rem", md: "4rem" },
+                    textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+                  }}
+                >
+                  {animatedPoints}
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.8, mt: 1 }}>
+                  {100 - userData.points > 0
+                    ? `${100 - userData.points} points until free Bakmi!`
+                    : "You can redeem a free Bakmi! 🎉"}
+                </Typography>
+              </Box>
+            </Card>
+          )}
 
           {/* Reward Journey */}
           <Card
@@ -223,21 +352,49 @@ const PointsPage = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "flex-start",
-                px: { xs: 1, md: 4 },
+                px: 0,
               }}
             >
-              {/* Connecting Line */}
+              {/* Background Line */}
               <Box
                 sx={{
                   position: "absolute",
                   top: 24,
-                  left: 40,
-                  right: 40,
+                  left: 24,
+                  right: 24,
                   height: 4,
                   bgcolor: "#E0E0E0",
                   zIndex: 0,
+                  borderRadius: 2,
                 }}
               />
+
+              {/* Animated Progress Line */}
+              {userData && (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 24,
+                    left: 24,
+                    height: 4,
+                    bgcolor: "#d11919",
+                    zIndex: 0,
+                    borderRadius: 2,
+                    width: `${Math.min((userData.points / 100) * 100, 100)}%`,
+                    transition: "width 1.5s ease-out",
+                    animation: "progressGrow 1.5s ease-out",
+                    "@keyframes progressGrow": {
+                      from: { width: "0%" },
+                      to: {
+                        width: `${Math.min(
+                          (userData.points / 100) * 100,
+                          100
+                        )}%`,
+                      },
+                    },
+                  }}
+                />
+              )}
 
               {journeySteps.map((step, index) => (
                 <Box
@@ -248,20 +405,28 @@ const PointsPage = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    width: "20%",
                   }}
                 >
                   <Avatar
                     sx={{
                       width: 48,
                       height: 48,
-                      bgcolor: step.highlight ? "#F44336" : "#9E9E9E",
+                      bgcolor:
+                        userData && userData.points >= parseInt(step.points)
+                          ? "#d11919"
+                          : step.highlight
+                          ? "#F44336"
+                          : "#9E9E9E",
                       color: "white",
                       mb: 1,
-                      boxShadow: step.highlight
-                        ? "0 4px 10px rgba(244,67,54,0.4)"
-                        : "none",
+                      boxShadow:
+                        (userData &&
+                          userData.points >= parseInt(step.points)) ||
+                        step.highlight
+                          ? "0 4px 10px rgba(209,25,25,0.4)"
+                          : "none",
                       border: "4px solid white",
+                      transition: "all 0.5s ease-out",
                     }}
                   >
                     {step.icon}
@@ -270,8 +435,14 @@ const PointsPage = () => {
                     variant="caption"
                     fontWeight="bold"
                     sx={{
-                      color: step.highlight ? "#D11919" : "text.primary",
+                      color:
+                        (userData &&
+                          userData.points >= parseInt(step.points)) ||
+                        step.highlight
+                          ? "#D11919"
+                          : "text.primary",
                       fontSize: { xs: "0.7rem", sm: "0.875rem" },
+                      transition: "color 0.5s ease-out",
                     }}
                   >
                     {step.label}

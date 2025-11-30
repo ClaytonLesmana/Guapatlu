@@ -7,7 +7,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ const RegisterPage = () => {
     phone: "",
     dob: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -24,12 +27,50 @@ const RegisterPage = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Add registration logic here
-    alert("Registration successful! (Mock)");
-    window.location.href = "/account"; // Redirect to account page
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(
+          "🎉 Registration successful! You earned 10 welcome points!",
+          {
+            duration: 4000,
+            style: {
+              background: "#4caf50",
+              color: "#fff",
+              fontWeight: "bold",
+            },
+          }
+        );
+        setTimeout(() => {
+          window.location.href = "/points";
+        }, 1500);
+      } else {
+        console.error("Registration failed:", data);
+        toast.error(
+          "Registration failed: " + (data.message || "Unknown error")
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -163,9 +204,14 @@ const RegisterPage = () => {
                     fullWidth
                     variant="contained"
                     size="large"
+                    disabled={loading}
                     sx={{ mt: 4, py: 1.5, fontSize: "1.1rem" }}
                   >
-                    Register Now
+                    {loading ? (
+                      <CircularProgress size={24} sx={{ color: "white" }} />
+                    ) : (
+                      "Register Now"
+                    )}
                   </Button>
                   <Typography
                     variant="caption"

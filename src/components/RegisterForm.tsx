@@ -6,6 +6,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,7 @@ const RegisterForm = () => {
     phone: "",
     dob: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -22,11 +25,40 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Add registration logic here
-    alert("Registration successful! (Mock)");
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(
+          "🎉 Registration successful! You earned 10 welcome points!",
+          {
+            duration: 4000,
+          }
+        );
+        // Optional: Redirect or clear form
+      } else {
+        toast.error("Registration failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An error occurred.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -111,9 +143,14 @@ const RegisterForm = () => {
               fullWidth
               variant="contained"
               size="large"
+              disabled={loading}
               sx={{ mt: 3, mb: 2 }}
             >
-              Register Now
+              {loading ? (
+                <CircularProgress size={24} sx={{ color: "white" }} />
+              ) : (
+                "Register Now"
+              )}
             </Button>
           </Box>
         </Paper>
