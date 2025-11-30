@@ -49,7 +49,7 @@ const AccountPage = () => {
             sx={{ p: 4, mb: 6, borderRadius: 2, bgcolor: "#fff" }}
           >
             <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Typography variant="h6" gutterBottom color="text.secondary">
                   Current Balance
                 </Typography>
@@ -64,7 +64,7 @@ const AccountPage = () => {
                   Points
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid size={{ xs: 12, md: 6 }}>
                 <Box
                   sx={{
                     textAlign: "center",
@@ -133,7 +133,7 @@ const AccountPage = () => {
           </Typography>
           <Grid container spacing={3}>
             {[1, 2, 3].map((item) => (
-              <Grid item xs={12} key={item}>
+              <Grid size={{ xs: 12 }} key={item}>
                 <Card sx={{ display: "flex", alignItems: "center", p: 2 }}>
                   <Box
                     sx={{
