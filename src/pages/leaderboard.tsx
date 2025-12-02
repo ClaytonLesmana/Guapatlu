@@ -303,87 +303,172 @@ const LeaderboardPage = () => {
               ))}
             </Box>
 
-            {/* How it Works */}
-            <Box textAlign="center" mb={6}>
-              <Typography variant="h4" fontWeight="bold" gutterBottom>
-                Cara Kerja
-              </Typography>
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ maxWidth: 600, mx: "auto" }}
-              >
-                Setiap transaksi memberikan poin. Semakin banyak kamu makan di
-                Guapatlu, semakin tinggi peringkatmu. Raih posisi Top 10 dan
-                dapatkan hadiah spesial!
+            {/* Points System Explanation */}
+
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              mb={3}
+            >
+              <CardGiftcardIcon
+                sx={{ fontSize: 36, mr: 2, color: "#d11919" }}
+              />
+              <Typography variant="h5" fontWeight="bold" color="#d11919">
+                Sistem Poin & Reward Guapatlu
               </Typography>
             </Box>
 
-            <Grid container spacing={4} justifyContent="center">
-              {[
-                {
-                  icon: (
-                    <MonetizationOnIcon
-                      sx={{ fontSize: 40, color: "#d11919" }}
-                    />
-                  ),
-                  title: "Earn Points",
-                  desc: "Setiap pembelian otomatis mendapat poin reward",
-                },
-                {
-                  icon: (
-                    <TrendingUpIcon sx={{ fontSize: 40, color: "#d11919" }} />
-                  ),
-                  title: "Climb Ranks",
-                  desc: "Kumpulkan poin untuk naik peringkat leaderboard",
-                },
-                {
-                  icon: (
-                    <CardGiftcardIcon sx={{ fontSize: 40, color: "#d11919" }} />
-                  ),
-                  title: "Redeem Rewards",
-                  desc: "Tukar poin dengan bakmi gratis dan hadiah menarik",
-                },
-              ].map((item, index) => (
-                <Grid key={index} size={{ xs: 12, md: 4 }}>
-                  <Card
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    height: "100%",
+                    bgcolor: "white",
+                    boxShadow: 2,
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box
                     sx={{
-                      p: 4,
-                      height: "100%",
-                      textAlign: "center",
-                      borderRadius: 4,
-                      boxShadow: 2,
-                      transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "translateY(-5px)",
-                        boxShadow: 6,
-                      },
+                      width: 60,
+                      height: 60,
+                      borderRadius: "50%",
+                      bgcolor: "#ffebee",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mx: "auto",
+                      mb: 2,
                     }}
                   >
-                    <Box
-                      sx={{
-                        width: 80,
-                        height: 80,
-                        borderRadius: "50%",
-                        bgcolor: "#ffebee",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        mx: "auto",
-                        mb: 3,
-                      }}
-                    >
-                      {item.icon}
-                    </Box>
-                    <Typography variant="h6" fontWeight="bold" gutterBottom>
-                      {item.title}
+                    <MonetizationOnIcon
+                      sx={{ fontSize: 32, color: "#d11919" }}
+                    />
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    fontWeight="bold"
+                    align="center"
+                    gutterBottom
+                  >
+                    Cara Dapat Poin
+                  </Typography>
+                  <Typography variant="body2" align="center" paragraph>
+                    <strong style={{ fontSize: "1.1rem", color: "#d11919" }}>
+                      1 Poin = Rp 10.000
+                    </strong>
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    align="center"
+                  >
+                    Setiap pembelian otomatis mendapat poin. Contoh: Belanja Rp
+                    50.000 = 5 poin
+                  </Typography>
+                </Card>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    height: "100%",
+                    bgcolor: "white",
+                    boxShadow: 2,
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      borderRadius: "50%",
+                      bgcolor: "#ffebee",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mx: "auto",
+                      mb: 2,
+                    }}
+                  >
+                    <EmojiEventsIcon sx={{ fontSize: 32, color: "#d11919" }} />
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    fontWeight="bold"
+                    align="center"
+                    gutterBottom
+                  >
+                    Tukar Reward
+                  </Typography>
+                  <Box sx={{ textAlign: "left", pl: 2 }}>
+                    <Typography variant="body2" sx={{ mb: 0.5 }}>
+                      • <strong>15 Poin</strong> = Free Es Teh
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {item.desc}
+                    <Typography variant="body2" sx={{ mb: 0.5 }}>
+                      • <strong>30 Poin</strong> = Free Pangsit
                     </Typography>
-                  </Card>
-                </Grid>
-              ))}
+                    <Typography variant="body2" sx={{ mb: 0.5 }}>
+                      • <strong>60 Poin</strong> = Bakmi + Es Teh
+                    </Typography>
+                    <Typography variant="body2">
+                      • <strong>100 Poin</strong> = Bakmi 2 Orang
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 4 }}>
+                <Card
+                  sx={{
+                    p: 3,
+                    height: "100%",
+                    bgcolor: "white",
+                    boxShadow: 2,
+                    borderRadius: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      borderRadius: "50%",
+                      bgcolor: "#ffebee",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mx: "auto",
+                      mb: 2,
+                    }}
+                  >
+                    <WorkspacePremiumIcon
+                      sx={{ fontSize: 32, color: "#d11919" }}
+                    />
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    fontWeight="bold"
+                    align="center"
+                    gutterBottom
+                  >
+                    Keuntungan
+                  </Typography>
+                  <Box sx={{ textAlign: "left", pl: 2 }}>
+                    <Typography variant="body2" sx={{ mb: 1 }}>
+                      ✓ Poin <strong>tidak pernah hangus</strong>
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 1 }}>
+                      ✓ Poin <strong>tidak direset</strong> saat tukar hadiah
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 1 }}>
+                      ✓ Bonus <strong>10 poin</strong> saat daftar
+                    </Typography>
+                  </Box>
+                </Card>
+              </Grid>
             </Grid>
           </>
         )}

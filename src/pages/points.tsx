@@ -9,6 +9,10 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import CircularProgress from "@mui/material/CircularProgress";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FlagIcon from "@mui/icons-material/Flag";
@@ -299,6 +303,224 @@ const PointsPage = () => {
               </Box>
             </Card>
           )}
+
+          {/* Points System Explanation - Accordion */}
+          <Accordion
+            elevation={3}
+            sx={{
+              mb: 6,
+              borderRadius: 4,
+              bgcolor: "#d11919",
+              overflow: "hidden",
+              "&:before": {
+                display: "none",
+              },
+              "&.Mui-expanded": {
+                margin: 0,
+                mb: 6,
+              },
+            }}
+          >
+            <AccordionSummary
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white", fontSize: 32 }} />
+              }
+              sx={{
+                borderRadius: 4,
+                color: "white",
+                "&:hover": {
+                  bgcolor: "#b91616",
+                },
+              }}
+            >
+              <Box display="flex" alignItems="center">
+                <CardGiftcardIcon sx={{ fontSize: 36, mr: 2 }} />
+                <Box>
+                  <Typography variant="h6" fontWeight="bold" color="white">
+                    Cara Kerja Sistem Poin
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "rgba(255,255,255,0.8)" }}
+                  >
+                    Klik untuk melihat detail
+                  </Typography>
+                </Box>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails sx={{ pt: 3, pb: 4, px: 4 }}>
+              <Grid container spacing={3}>
+                <Grid size={{ xs: 12, md: 6 }}>
+                  <Box
+                    sx={{
+                      p: 3,
+                      bgcolor: "white",
+                      borderRadius: 2,
+                      height: "100%",
+                      boxShadow: 2,
+                      border: "2px solid #d11919",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      gutterBottom
+                      color="#d11919"
+                    >
+                      💰 Cara Mendapatkan Poin
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      paragraph
+                      sx={{ color: "#d11919", fontWeight: 600 }}
+                    >
+                      1 Poin = Rp 10.000
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      paragraph
+                    >
+                      Setiap kali kamu belanja di Guapatlu, kamu akan mendapat
+                      poin otomatis!
+                    </Typography>
+                    <Box
+                      sx={{
+                        bgcolor: "#ffebee",
+                        p: 2,
+                        borderRadius: 1,
+                        mt: 2,
+                        border: "1px solid #ffcdd2",
+                      }}
+                    >
+                      <Typography
+                        variant="body2"
+                        fontWeight="bold"
+                        gutterBottom
+                        color="#d11919"
+                      >
+                        Contoh:
+                      </Typography>
+                      <Typography variant="body2">
+                        • Belanja Rp 50.000 ={" "}
+                        <strong style={{ color: "#d11919" }}>5 poin</strong>
+                      </Typography>
+                      <Typography variant="body2">
+                        • Belanja Rp 100.000 ={" "}
+                        <strong style={{ color: "#d11919" }}>10 poin</strong>
+                      </Typography>
+                      <Typography variant="body2">
+                        • Belanja Rp 250.000 ={" "}
+                        <strong style={{ color: "#d11919" }}>25 poin</strong>
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                <Grid size={{ xs: 12, md: 6 }}>
+                  <Box
+                    sx={{
+                      p: 3,
+                      bgcolor: "white",
+                      borderRadius: 2,
+                      height: "100%",
+                      boxShadow: 2,
+                      border: "2px solid #d11919",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      gutterBottom
+                      color="#d11919"
+                    >
+                      🎁 Tukar Poin dengan Hadiah
+                    </Typography>
+                    <Box component="ul" sx={{ pl: 2, mt: 2 }}>
+                      <Typography
+                        component="li"
+                        variant="body2"
+                        sx={{ mb: 1.5 }}
+                      >
+                        <strong style={{ color: "#d11919" }}>15 Poin</strong> →
+                        Free Es Teh
+                      </Typography>
+                      <Typography
+                        component="li"
+                        variant="body2"
+                        sx={{ mb: 1.5 }}
+                      >
+                        <strong style={{ color: "#d11919" }}>30 Poin</strong> →
+                        Free Pangsit (Rebus/Goreng)
+                      </Typography>
+                      <Typography
+                        component="li"
+                        variant="body2"
+                        sx={{ mb: 1.5 }}
+                      >
+                        <strong style={{ color: "#d11919" }}>60 Poin</strong> →
+                        Free Bakmi Jambi + Es Teh
+                      </Typography>
+                      <Typography
+                        component="li"
+                        variant="body2"
+                        sx={{ mb: 1.5 }}
+                      >
+                        <strong style={{ color: "#d11919" }}>100 Poin</strong> →
+                        Free Bakmi Jambi untuk 2 Orang
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                <Grid size={{ xs: 12 }}>
+                  <Box
+                    sx={{
+                      p: 3,
+                      bgcolor: "white",
+                      borderRadius: 2,
+                      boxShadow: 2,
+                    }}
+                  >
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      gutterBottom
+                      color="#d11919"
+                    >
+                      ⭐ Keuntungan Lainnya:
+                    </Typography>
+                    <Grid container spacing={2}>
+                      <Grid size={{ xs: 12, sm: 4 }}>
+                        <Typography variant="body2">
+                          ✓ Poin{" "}
+                          <strong style={{ color: "#d11919" }}>
+                            tidak pernah hangus
+                          </strong>
+                        </Typography>
+                      </Grid>
+                      <Grid size={{ xs: 12, sm: 4 }}>
+                        <Typography variant="body2">
+                          ✓ Poin{" "}
+                          <strong style={{ color: "#d11919" }}>
+                            tidak direset
+                          </strong>{" "}
+                          setelah ditukar
+                        </Typography>
+                      </Grid>
+                      <Grid size={{ xs: 12, sm: 4 }}>
+                        <Typography variant="body2">
+                          ✓ Bonus{" "}
+                          <strong style={{ color: "#d11919" }}>10 poin</strong>{" "}
+                          saat registrasi
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Grid>
+              </Grid>
+            </AccordionDetails>
+          </Accordion>
 
           {/* Reward Journey */}
           <Card

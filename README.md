@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Guapatlu - Restaurant Loyalty Rewards System
+
+A Next.js-based restaurant website with an integrated customer loyalty rewards program. Customers earn points for every purchase and can redeem rewards at various tiers.
+
+## Features
+
+- **Customer Registration**: New customers can sign up and receive 10 welcome points
+- **Points System**: Customers earn 1 point for every 10,000 IDR spent
+- **Reward Tiers**: Multiple reward levels from Free Es Teh to Free Bakmi for 2 People
+- **Leaderboard**: View top customers and compete for rankings
+- **Online Ordering**: Integration with Gojek and Grab delivery services
+- **Admin Panel**: Hidden admin interface for managing customer points and redemptions
 
 ## Getting Started
 
@@ -16,13 +27,92 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Admin Panel
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The admin panel is **hidden from navigation** and can only be accessed directly via URL:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+http://localhost:3000/admin
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Admin Features
+
+- **Search Customer**: Look up customer information by phone number
+- **Add Points**: Add points based on customer spending (1 point per 10,000 IDR)
+- **Redeem Rewards**: Process reward redemptions and deduct points
+- **View Points**: Check customer's current point balance
+
+For detailed admin instructions, see [ADMIN_GUIDE.md](./ADMIN_GUIDE.md).
+
+### Optional Password Protection
+
+To add basic password protection to the admin panel:
+
+1. Set environment variable: `ADMIN_PASSWORD=your-secure-password`
+2. Access admin via: `http://localhost:3000/admin-login`
+
+Note: This is basic protection. For production, implement proper authentication.
+
+## Reward Tiers
+
+- **15 Points**: Free Es Teh
+- **30 Points**: Free Pangsit (Rebus or Goreng)
+- **60 Points**: Free Bakmi Jambi + Es Teh
+- **100 Points**: Free Bakmi Jambi for 2 People (Bring a Friend)
+
+## Environment Variables
+
+Required environment variables (see ENV_SETUP.md):
+
+```env
+GOOGLE_SHEET_ID=your-sheet-id
+GOOGLE_SHEETS_CLIENT_EMAIL=your-service-account-email
+GOOGLE_SHEETS_PRIVATE_KEY=your-private-key
+ADMIN_PASSWORD=your-admin-password (optional)
+```
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable React components
+├── pages/
+│   ├── index.tsx       # Home page
+│   ├── register.tsx    # Customer registration
+│   ├── points.tsx      # Check points balance
+│   ├── menu.tsx        # Menu page
+│   ├── leaderboard.tsx # Points leaderboard
+│   ├── admin.tsx       # Admin panel (hidden)
+│   ├── admin-login.tsx # Optional admin login
+│   └── api/            # API routes
+│       ├── register.ts # Customer registration API
+│       ├── points.ts   # Get customer points API
+│       └── admin/      # Admin API endpoints
+│           ├── add-points.ts      # Add points by spending
+│           ├── redeem-reward.ts   # Process reward redemption
+│           └── verify-password.ts # Admin authentication
+└── styles/             # Global styles
+```
+
+## Google Sheets Integration
+
+The app uses Google Sheets as a database with the following structure:
+
+| Column | Field | Description |
+|--------|-------|-------------|
+| A | Name | Customer's full name |
+| B | Phone | Phone number (with prefix `'`) |
+| C | DOB | Date of birth |
+| D | Total | Total spending in IDR |
+| E | Points | Current points balance |
+
+## Technologies Used
+
+- **Next.js**: React framework for production
+- **Material-UI**: Component library for UI
+- **Google Sheets API**: Database backend
+- **TypeScript**: Type-safe JavaScript
+- **React Hot Toast**: Toast notifications
 
 ## Learn More
 

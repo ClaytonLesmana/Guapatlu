@@ -15,6 +15,8 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import StarIcon from "@mui/icons-material/Star";
+import Alert from "@mui/material/Alert";
+import InfoIcon from "@mui/icons-material/Info";
 
 const OnlinePage = () => {
   return (
@@ -68,6 +70,28 @@ const OnlinePage = () => {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: 8 }}>
+        {/* Price Disclaimer */}
+        <Alert
+          severity="warning"
+          icon={<InfoIcon />}
+          sx={{
+            mb: 6,
+            maxWidth: 800,
+            mx: "auto",
+            borderRadius: 2,
+            bgcolor: "#fff3e0",
+            border: "2px solid #ff9800",
+          }}
+        >
+          <Typography variant="body1" fontWeight="bold" gutterBottom>
+            Pemberitahuan Harga
+          </Typography>
+          <Typography variant="body2">
+            Harga yang tertera di aplikasi pengiriman online (GrabFood/GoFood) dapat berbeda dengan harga di restoran kami. 
+            Perbedaan harga ini dikarenakan biaya komisi platform dan layanan pengiriman.
+          </Typography>
+        </Alert>
+
         {/* Platform Selection */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography

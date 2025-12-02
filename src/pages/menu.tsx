@@ -16,6 +16,8 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
+import Alert from "@mui/material/Alert";
+import InfoIcon from "@mui/icons-material/Info";
 
 const categories = ["All", "Bundling", "Bakmi", "Sides", "Drinks"];
 
@@ -231,6 +233,24 @@ const MenuPage = () => {
           >
             Explore our delicious offerings made with passion.
           </Typography>
+
+          {/* Price Disclaimer */}
+          <Alert
+            severity="info"
+            icon={<InfoIcon />}
+            sx={{
+              mb: 4,
+              maxWidth: 800,
+              mx: "auto",
+              borderRadius: 2,
+              bgcolor: "#e3f2fd",
+              border: "1px solid #2196f3",
+            }}
+          >
+            <Typography variant="body2" fontWeight="bold">
+              Catatan: Harga online dan offline dapat berbeda tergantung platform pengiriman.
+            </Typography>
+          </Alert>
 
           <Box
             sx={{
