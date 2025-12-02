@@ -19,16 +19,52 @@ const RegisterPage = () => {
     dob: "",
   });
   const [loading, setLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
+
+  const validateIndonesianPhone = (phone: string): boolean => {
+    // Remove all spaces and dashes
+    const cleanPhone = phone.replace(/[\s-]/g, "");
+
+    // Indonesian phone patterns:
+    // 08xxxxxxxxx (10-13 digits starting with 08)
+    // +628xxxxxxxxx (starts with +62)
+    // 628xxxxxxxxx (starts with 62)
+    const pattern = /^(\+62|62|0)8[0-9]{8,11}$/;
+
+    return pattern.test(cleanPhone);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Validate phone number on change
+    if (name === "phone") {
+      if (value && !validateIndonesianPhone(value)) {
+        setPhoneError(
+          "Format nomor telepon tidak valid. Gunakan format Indonesia (contoh: 08123456789)"
+        );
+      } else {
+        setPhoneError("");
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate phone number before submission
+    if (!validateIndonesianPhone(formData.phone)) {
+      toast.error(
+        "Format nomor telepon tidak valid. Gunakan format Indonesia (contoh: 08123456789)"
+      );
+      return;
+    }
+
     console.log("Form submitted:", formData);
 
     setLoading(true);
@@ -61,13 +97,24 @@ const RegisterPage = () => {
         }, 1500);
       } else {
         console.error("Registration failed:", data);
-        toast.error(
-          "Registration failed: " + (data.message || "Unknown error")
-        );
+        // Check if it's a duplicate phone number error
+        if (response.status === 409) {
+          toast.error(
+            "Nomor telepon sudah terdaftar. Silakan gunakan nomor lain.",
+            {
+              duration: 4000,
+            }
+          );
+        } else {
+          toast.error(
+            "Pendaftaran gagal: " +
+              (data.message || "Kesalahan tidak diketahui")
+          );
+        }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("An error occurred. Please try again later.");
+      toast.error("Terjadi kesalahan. Silakan coba lagi nanti.");
     } finally {
       setLoading(false);
     }
@@ -181,6 +228,10 @@ const RegisterPage = () => {
                         autoComplete="tel"
                         value={formData.phone}
                         onChange={handleChange}
+                        error={!!phoneError}
+                        helperText={
+                          phoneError || "Contoh: 08123456789 atau +628123456789"
+                        }
                       />
                     </Grid>
                     <Grid size={{ xs: 12 }}>

@@ -15,6 +15,7 @@ import FlagIcon from "@mui/icons-material/Flag";
 import StarIcon from "@mui/icons-material/Star";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
+import FreeBreakfastIcon from "@mui/icons-material/FreeBreakfast";
 import RamenDiningIcon from "@mui/icons-material/RamenDining";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -97,57 +98,29 @@ const PointsPage = () => {
   const journeySteps = [
     { label: "Start", points: "0 poin", icon: <FlagIcon />, active: true },
     {
-      label: "Earn Points",
-      points: "25 poin",
-      icon: <StarIcon />,
+      label: "Free Es Teh",
+      points: "15 points",
+      icon: <FreeBreakfastIcon />,
       active: true,
     },
     {
-      label: "Halfway There",
-      points: "50 poin",
+      label: "Free Pangsit",
+      points: "30 points",
       icon: <LocalFireDepartmentIcon />,
       active: true,
     },
     {
-      label: "Almost There",
-      points: "75 poin",
+      label: "Diskon 25%",
+      points: "60 points",
       icon: <WhatshotIcon />,
       active: true,
     },
     {
-      label: "Free Bakmi!",
-      points: "100 poin",
+      label: "Free Bakmi ",
+      points: "100 points",
       icon: <RamenDiningIcon />,
       active: true,
       highlight: true,
-    },
-  ];
-
-  const badges = [
-    {
-      title: "New Member",
-      points: "0 poin",
-      icon: <PersonAddIcon />,
-    },
-    {
-      title: "Bakmi Lover",
-      points: "25 poin",
-      icon: <FavoriteIcon />,
-    },
-    {
-      title: "Level 3 Pedas",
-      points: "50 poin",
-      icon: <LocalFireDepartmentIcon />,
-    },
-    {
-      title: "Almost Free",
-      points: "75 poin",
-      icon: <EmojiEventsIcon />,
-    },
-    {
-      title: "Bakmi Master",
-      points: "100 poin",
-      icon: <WorkspacePremiumIcon />,
     },
   ];
 
@@ -454,56 +427,6 @@ const PointsPage = () => {
               ))}
             </Box>
           </Card>
-
-          {/* Achievement Badges */}
-          {/* <Box sx={{ textAlign: "center", mb: 6 }}>
-            <Typography
-              variant="h5"
-              fontWeight="bold"
-              gutterBottom
-              sx={{ mb: 4 }}
-            >
-              Achievement Badges
-            </Typography>
-            <Grid container spacing={2} justifyContent="center">
-              {badges.map((badge, index) => (
-                <Grid key={index} size={{ xs: 6, sm: 4, md: 2.4 }}>
-                  <Card
-                    elevation={0}
-                    sx={{
-                      p: 2,
-                      borderRadius: 3,
-                      bgcolor: "white",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      border: "1px solid #f0f0f0",
-                    }}
-                  >
-                    <Avatar
-                      sx={{
-                        bgcolor: "#EEEEEE",
-                        color: "#9E9E9E",
-                        width: 56,
-                        height: 56,
-                        mb: 2,
-                      }}
-                    >
-                      {badge.icon}
-                    </Avatar>
-                    <Typography variant="subtitle2" fontWeight="bold">
-                      {badge.title}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary">
-                      {badge.points}
-                    </Typography>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Box> */}
 
           {/* Footer Buttons */}
           <Grid container spacing={2} justifyContent="center">

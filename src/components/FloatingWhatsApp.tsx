@@ -5,7 +5,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 const FloatingWhatsApp = () => {
   const handleClick = () => {
-    window.open("https://wa.me/1234567890", "_blank"); // Replace with actual number
+    window.open("https://wa.me/6285777773839", "_blank"); // Replace with actual number
   };
 
   return (

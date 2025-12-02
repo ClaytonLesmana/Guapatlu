@@ -19,27 +19,52 @@ import StarIcon from "@mui/icons-material/Star";
 const OnlinePage = () => {
   return (
     <Layout>
-      {/* Header Section */}
       <Box
-        sx={{ bgcolor: "#d11919", color: "white", py: 8, textAlign: "center" }}
+        sx={{
+          bgcolor: "#d11919",
+          color: "white",
+          py: 8,
+          position: "relative",
+          overflow: "hidden",
+          textAlign: "center",
+        }}
       >
-        <Container maxWidth="md">
-          <Typography
-            variant="h3"
-            component="h1"
-            fontWeight="bold"
-            gutterBottom
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            mb={2}
           >
-            Order Online
-          </Typography>
+            <RestaurantIcon sx={{ fontSize: 40, mr: 2, color: "#FFD700" }} />
+            <Typography variant="h3" component="h1" fontWeight="bold">
+              Order Online
+            </Typography>
+          </Box>
           <Typography
             variant="h6"
-            sx={{ opacity: 0.9, maxWidth: 600, mx: "auto" }}
+            sx={{ maxWidth: 600, mx: "auto", opacity: 0.9 }}
           >
             Craving authentic flavors? Order now through our trusted delivery
             partners and enjoy Guapatlu's delicious dishes at your doorstep.
           </Typography>
         </Container>
+        {/* Background decoration */}
+        <Box
+          component="img"
+          src="/Kuah Jambi.jpg"
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0.2,
+            zIndex: 1,
+            filter: "blur(4px)",
+          }}
+        />
       </Box>
 
       <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -74,13 +99,21 @@ const OnlinePage = () => {
                 >
                   <Box
                     sx={{
-                      bgcolor: "#e8f5e9",
+                      bgcolor: "white",
                       p: 2,
-                      borderRadius: "50%",
+                      borderRadius: 2,
                       mb: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    <RestaurantIcon sx={{ fontSize: 40, color: "#00b14f" }} />
+                    <Box
+                      component="img"
+                      src="/grab.png"
+                      alt="Grab"
+                      sx={{ height: 50, width: "auto" }}
+                    />
                   </Box>
                   <Typography variant="h5" fontWeight="bold" gutterBottom>
                     GrabFood
@@ -116,9 +149,8 @@ const OnlinePage = () => {
                     variant="contained"
                     fullWidth
                     size="large"
-                    href="https://food.grab.com"
+                    href="https://food.grab.com/id/en/restaurant/online-delivery/6-C7DGWBMJMFXENA?sourceID=20250712_145850_142F14DA306948F68EDEC5E8E5FB8FB8_MEXMPS"
                     target="_blank"
-                    startIcon={<RestaurantIcon />}
                     sx={{
                       bgcolor: "#00b14f",
                       "&:hover": { bgcolor: "#009e47" },
@@ -147,13 +179,21 @@ const OnlinePage = () => {
                 >
                   <Box
                     sx={{
-                      bgcolor: "#e8f5e9",
+                      bgcolor: "white",
                       p: 2,
-                      borderRadius: "50%",
+                      borderRadius: 2,
                       mb: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    <TwoWheelerIcon sx={{ fontSize: 40, color: "#00aa13" }} />
+                    <Box
+                      component="img"
+                      src="/gojek.png"
+                      alt="Gojek"
+                      sx={{ height: 50, width: "auto" }}
+                    />
                   </Box>
                   <Typography variant="h5" fontWeight="bold" gutterBottom>
                     GoFood
@@ -189,9 +229,8 @@ const OnlinePage = () => {
                     variant="contained"
                     fullWidth
                     size="large"
-                    href="https://gofood.co.id"
+                    href="https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a"
                     target="_blank"
-                    startIcon={<TwoWheelerIcon />}
                     sx={{
                       bgcolor: "#00aa13",
                       "&:hover": { bgcolor: "#00880f" },
@@ -326,7 +365,7 @@ const OnlinePage = () => {
               flexWrap: "wrap",
             }}
           >
-            <Button
+            {/* <Button
               variant="contained"
               startIcon={<PhoneIcon />}
               sx={{
@@ -336,9 +375,11 @@ const OnlinePage = () => {
               }}
             >
               Call Us
-            </Button>
+            </Button> */}
             <Button
               variant="contained"
+              href="https://wa.me/6285777773839"
+              target="_blank"
               startIcon={<WhatsAppIcon />}
               sx={{
                 bgcolor: "#25D366",

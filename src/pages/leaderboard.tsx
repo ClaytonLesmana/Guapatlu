@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -6,93 +6,63 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
-import LinearProgress from "@mui/material/LinearProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 
-const topThree = [
-  {
-    rank: 2,
-    name: "Andi Pratama",
-    points: 2850,
-    badge: "Bakmi Master",
-    color: "#C0C0C0", // Silver
-    badgeColor: "grey.600",
-  },
-  {
-    rank: 1,
-    name: "Sari Dewi",
-    points: 3420,
-    badge: "Sultan Bakmi",
-    color: "#FFD700", // Gold
-    badgeColor: "#F4B400",
-  },
-  {
-    rank: 3,
-    name: "Budi Santoso",
-    points: 2190,
-    badge: "Level 5 Pedas",
-    color: "#CD7F32", // Bronze
-    badgeColor: "#E67E22",
-  },
-];
-
-const runnersUp = [
-  {
-    rank: 4,
-    name: "Rini Kusuma",
-    points: 1980,
-    badge: "Weekly Top Spender",
-    badgeColor: "#1976D2",
-  },
-  {
-    rank: 5,
-    name: "Ahmad Rizki",
-    points: 1750,
-    badge: "Bakmi Master",
-    badgeColor: "#2E7D32",
-  },
-  {
-    rank: 6,
-    name: "Maya Sari",
-    points: 1620,
-    badge: "Level 4 Pedas",
-    badgeColor: "#9C27B0",
-  },
-  {
-    rank: 7,
-    name: "Doni Wijaya",
-    points: 1450,
-    badge: "Regular Customer",
-    badgeColor: "#5C6BC0",
-  },
-  {
-    rank: 8,
-    name: "Doni Wijaya",
-    points: 1450,
-    badge: "Regular Customer",
-    badgeColor: "#5C6BC0",
-  },
-  {
-    rank: 9,
-    name: "Doni Wijaya",
-    points: 1450,
-    badge: "Regular Customer",
-    badgeColor: "#5C6BC0",
-  },
-  {
-    rank: 10,
-    name: "Doni Wijaya",
-    points: 1450,
-    badge: "Regular Customer",
-    badgeColor: "#5C6BC0",
-  },
-];
+type LeaderboardUser = {
+  rank: number;
+  name: string;
+  points: number;
+  badge: string;
+  badgeColor: string;
+  color?: string;
+};
 
 const LeaderboardPage = () => {
+  const [leaderboard, setLeaderboard] = useState<LeaderboardUser[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await fetch("/api/leaderboard");
+        const data = await response.json();
+
+        if (response.ok) {
+          // Add medal colors for top 3
+          const enrichedData = data.data.map((user: LeaderboardUser) => {
+            if (user.rank === 1) {
+              return { ...user, color: "#FFD700" }; // Gold
+            } else if (user.rank === 2) {
+              return { ...user, color: "#C0C0C0" }; // Silver
+            } else if (user.rank === 3) {
+              return { ...user, color: "#CD7F32" }; // Bronze
+            }
+            return user;
+          });
+          setLeaderboard(enrichedData);
+        } else {
+          setError(data.message || "Failed to fetch leaderboard");
+        }
+      } catch (err) {
+        setError("An error occurred while fetching the leaderboard");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
+
+  const topThree = leaderboard.slice(0, 3);
+  const runnersUp = leaderboard.slice(3, 10);
+
   return (
     <Layout>
       {/* Header Section */}
@@ -103,16 +73,25 @@ const LeaderboardPage = () => {
           py: 8,
           position: "relative",
           overflow: "hidden",
+          textAlign: "center",
         }}
       >
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          <Box display="flex" alignItems="center" mb={2}>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            mb={2}
+          >
             <EmojiEventsIcon sx={{ fontSize: 40, mr: 2, color: "#FFD700" }} />
             <Typography variant="h3" component="h1" fontWeight="bold">
               Top Customers
             </Typography>
           </Box>
-          <Typography variant="h6" sx={{ maxWidth: 600, opacity: 0.9 }}>
+          <Typography
+            variant="h6"
+            sx={{ maxWidth: 600, mx: "auto", opacity: 0.9 }}
+          >
             Terima kasih sudah menjadi bagian dari keluarga Bakmi Jambi
             Guapatlu! Semakin sering kamu makan, semakin tinggi peringkatmu.
           </Typography>
@@ -136,241 +115,278 @@ const LeaderboardPage = () => {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: 8 }}>
-        {/* Hall of Fame */}
-        <Box textAlign="center" mb={8}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Hall of Fame
-          </Typography>
-        </Box>
+        {/* Loading State */}
+        {loading && (
+          <Box textAlign="center" py={10}>
+            <CircularProgress size={60} sx={{ color: "#d11919" }} />
+            <Typography variant="h6" sx={{ mt: 3, color: "text.secondary" }}>
+              Loading leaderboard...
+            </Typography>
+          </Box>
+        )}
 
-        <Grid
-          container
-          spacing={4}
-          alignItems="flex-end"
-          justifyContent="center"
-          mb={8}
-        >
-          {topThree.map((user) => (
+        {/* Error State */}
+        {error && !loading && (
+          <Box textAlign="center" py={10}>
+            <Typography variant="h5" color="error" gutterBottom>
+              {error}
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Please try again later or contact support.
+            </Typography>
+          </Box>
+        )}
+
+        {/* Leaderboard Content */}
+        {!loading && !error && (
+          <>
+            {/* Hall of Fame */}
+            <Box textAlign="center" mb={8}>
+              <Typography variant="h4" fontWeight="bold" gutterBottom>
+                Hall of Fame
+              </Typography>
+            </Box>
+
             <Grid
-              key={user.rank}
-              size={{ xs: 12, md: 4 }}
-              sx={{
-                order: {
-                  xs: user.rank,
-                  md: user.rank === 1 ? 2 : user.rank === 2 ? 1 : 3,
-                },
-              }}
+              container
+              spacing={4}
+              alignItems="flex-end"
+              justifyContent="center"
+              mb={8}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  transform: {
-                    md: user.rank === 1 ? "scale(1.1)" : "scale(1)",
-                  },
-                  zIndex: user.rank === 1 ? 2 : 1,
-                  mb: { xs: 4, md: 0 },
-                }}
-              >
-                <Box
+              {topThree.map((user) => (
+                <Grid
+                  key={user.rank}
+                  size={{ xs: 12, md: 4 }}
                   sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: "50%",
-                    bgcolor: user.color,
+                    order: {
+                      xs: user.rank,
+                      md: user.rank === 1 ? 2 : user.rank === 2 ? 1 : 3,
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      transform: {
+                        md: user.rank === 1 ? "scale(1.1)" : "scale(1)",
+                      },
+                      zIndex: user.rank === 1 ? 2 : 1,
+                      mb: { xs: 4, md: 0 },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 60,
+                        height: 60,
+                        borderRadius: "50%",
+                        bgcolor: user.color,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mb: -3,
+                        zIndex: 2,
+                        boxShadow: 3,
+                      }}
+                    >
+                      <WorkspacePremiumIcon
+                        sx={{ color: "white", fontSize: 32 }}
+                      />
+                    </Box>
+                    <Card
+                      sx={{
+                        pt: 5,
+                        pb: 3,
+                        px: 3,
+                        width: "100%",
+                        textAlign: "center",
+                        bgcolor: user.rank === 1 ? "#FFF9C4" : "white",
+                        border: user.rank === 1 ? "2px solid #FFD700" : "none",
+                        boxShadow: 3,
+                        borderRadius: 4,
+                      }}
+                    >
+                      <Typography
+                        variant="h3"
+                        fontWeight="bold"
+                        color="text.secondary"
+                        gutterBottom
+                      >
+                        {user.rank}
+                      </Typography>
+                      <Typography variant="h6" fontWeight="bold" gutterBottom>
+                        {user.name}
+                      </Typography>
+                      <Chip
+                        label={user.badge}
+                        size="small"
+                        sx={{
+                          bgcolor: user.badgeColor,
+                          color: "white",
+                          fontWeight: "bold",
+                          mb: 2,
+                        }}
+                      />
+                      <Typography
+                        variant="h5"
+                        fontWeight="bold"
+                        color="#d11919"
+                      >
+                        {user.points.toLocaleString()} pts
+                      </Typography>
+                    </Card>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+
+            {/* Runners Up List */}
+            <Box sx={{ maxWidth: 800, mx: "auto", mb: 10 }}>
+              {runnersUp.map((user) => (
+                <Card
+                  key={user.rank}
+                  sx={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    mb: -3,
-                    zIndex: 2,
-                    boxShadow: 3,
+                    p: 2,
+                    mb: 2,
+                    boxShadow: 1,
+                    borderRadius: 3,
+                    transition: "transform 0.2s",
+                    "&:hover": { transform: "translateY(-2px)", boxShadow: 3 },
                   }}
                 >
-                  <WorkspacePremiumIcon sx={{ color: "white", fontSize: 32 }} />
-                </Box>
-                <Card
-                  sx={{
-                    pt: 5,
-                    pb: 3,
-                    px: 3,
-                    width: "100%",
-                    textAlign: "center",
-                    bgcolor: user.rank === 1 ? "#FFF9C4" : "white",
-                    border: user.rank === 1 ? "2px solid #FFD700" : "none",
-                    boxShadow: 3,
-                    borderRadius: 4,
-                  }}
-                >
-                  <Typography
-                    variant="h3"
-                    fontWeight="bold"
-                    color="text.secondary"
-                    gutterBottom
+                  <Box
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: "50%",
+                      bgcolor: "grey.200",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      color: "text.secondary",
+                      mr: 3,
+                      flexShrink: 0,
+                    }}
                   >
                     {user.rank}
-                  </Typography>
-                  <Typography variant="h6" fontWeight="bold" gutterBottom>
-                    {user.name}
-                  </Typography>
-                  <Chip
-                    label={user.badge}
-                    size="small"
-                    sx={{
-                      bgcolor: user.badgeColor,
-                      color: "white",
-                      fontWeight: "bold",
-                      mb: 2,
-                    }}
-                  />
-                  <Typography variant="h5" fontWeight="bold" color="#d11919">
-                    {user.points.toLocaleString()} pts
-                  </Typography>
+                  </Box>
+                  <Box sx={{ flexGrow: 1, mr: 2 }}>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      {user.name}
+                    </Typography>
+                    <Chip
+                      label={user.badge}
+                      size="small"
+                      sx={{
+                        bgcolor: user.badgeColor,
+                        color: "white",
+                        fontSize: "0.7rem",
+                        height: 20,
+                      }}
+                    />
+                  </Box>
+                  <Box sx={{ textAlign: "right", minWidth: 100 }}>
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight="bold"
+                      color="#d11919"
+                    >
+                      {user.points.toLocaleString()} pts
+                    </Typography>
+                  </Box>
                 </Card>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+              ))}
+            </Box>
 
-        {/* Runners Up List */}
-        <Box sx={{ maxWidth: 800, mx: "auto", mb: 10 }}>
-          {runnersUp.map((user) => (
-            <Card
-              key={user.rank}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                p: 2,
-                mb: 2,
-                boxShadow: 1,
-                borderRadius: 3,
-                transition: "transform 0.2s",
-                "&:hover": { transform: "translateY(-2px)", boxShadow: 3 },
-              }}
-            >
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  bgcolor: "grey.200",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "bold",
-                  color: "text.secondary",
-                  mr: 3,
-                  flexShrink: 0,
-                }}
+            {/* How it Works */}
+            <Box textAlign="center" mb={6}>
+              <Typography variant="h4" fontWeight="bold" gutterBottom>
+                Cara Kerja
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{ maxWidth: 600, mx: "auto" }}
               >
-                {user.rank}
-              </Box>
-              <Box sx={{ flexGrow: 1, mr: 2 }}>
-                <Typography variant="subtitle1" fontWeight="bold">
-                  {user.name}
-                </Typography>
-                <Chip
-                  label={user.badge}
-                  size="small"
-                  sx={{
-                    bgcolor: user.badgeColor,
-                    color: "white",
-                    fontSize: "0.7rem",
-                    height: 20,
-                  }}
-                />
-              </Box>
-              <Box sx={{ textAlign: "right", minWidth: 100 }}>
-                <Typography
-                  variant="subtitle1"
-                  fontWeight="bold"
-                  color="#d11919"
-                >
-                  {user.points.toLocaleString()} pts
-                </Typography>
-              </Box>
-            </Card>
-          ))}
-        </Box>
+                Setiap transaksi memberikan poin. Semakin banyak kamu makan di
+                Guapatlu, semakin tinggi peringkatmu. Raih posisi Top 10 dan
+                dapatkan hadiah spesial!
+              </Typography>
+            </Box>
 
-        {/* How it Works */}
-        <Box textAlign="center" mb={6}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Cara Kerja
-          </Typography>
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ maxWidth: 600, mx: "auto" }}
-          >
-            Setiap transaksi memberikan poin. Semakin banyak kamu makan di
-            Guapatlu, semakin tinggi peringkatmu. Raih posisi Top 10 dan
-            dapatkan hadiah spesial!
-          </Typography>
-        </Box>
-
-        <Grid container spacing={4} justifyContent="center">
-          {[
-            {
-              icon: (
-                <MonetizationOnIcon sx={{ fontSize: 40, color: "#d11919" }} />
-              ),
-              title: "Earn Points",
-              desc: "Setiap pembelian otomatis mendapat poin reward",
-            },
-            {
-              icon: <TrendingUpIcon sx={{ fontSize: 40, color: "#d11919" }} />,
-              title: "Climb Ranks",
-              desc: "Kumpulkan poin untuk naik peringkat leaderboard",
-            },
-            {
-              icon: (
-                <CardGiftcardIcon sx={{ fontSize: 40, color: "#d11919" }} />
-              ),
-              title: "Redeem Rewards",
-              desc: "Tukar poin dengan bakmi gratis dan hadiah menarik",
-            },
-          ].map((item, index) => (
-            <Grid key={index} size={{ xs: 12, md: 4 }}>
-              <Card
-                sx={{
-                  p: 4,
-                  height: "100%",
-                  textAlign: "center",
-                  borderRadius: 4,
-                  boxShadow: 2,
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-5px)",
-                    boxShadow: 6,
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 80,
-                    height: 80,
-                    borderRadius: "50%",
-                    bgcolor: "#ffebee",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    mx: "auto",
-                    mb: 3,
-                  }}
-                >
-                  {item.icon}
-                </Box>
-                <Typography variant="h6" fontWeight="bold" gutterBottom>
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item.desc}
-                </Typography>
-              </Card>
+            <Grid container spacing={4} justifyContent="center">
+              {[
+                {
+                  icon: (
+                    <MonetizationOnIcon
+                      sx={{ fontSize: 40, color: "#d11919" }}
+                    />
+                  ),
+                  title: "Earn Points",
+                  desc: "Setiap pembelian otomatis mendapat poin reward",
+                },
+                {
+                  icon: (
+                    <TrendingUpIcon sx={{ fontSize: 40, color: "#d11919" }} />
+                  ),
+                  title: "Climb Ranks",
+                  desc: "Kumpulkan poin untuk naik peringkat leaderboard",
+                },
+                {
+                  icon: (
+                    <CardGiftcardIcon sx={{ fontSize: 40, color: "#d11919" }} />
+                  ),
+                  title: "Redeem Rewards",
+                  desc: "Tukar poin dengan bakmi gratis dan hadiah menarik",
+                },
+              ].map((item, index) => (
+                <Grid key={index} size={{ xs: 12, md: 4 }}>
+                  <Card
+                    sx={{
+                      p: 4,
+                      height: "100%",
+                      textAlign: "center",
+                      borderRadius: 4,
+                      boxShadow: 2,
+                      transition: "transform 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: 6,
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 80,
+                        height: 80,
+                        borderRadius: "50%",
+                        bgcolor: "#ffebee",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mx: "auto",
+                        mb: 3,
+                      }}
+                    >
+                      {item.icon}
+                    </Box>
+                    <Typography variant="h6" fontWeight="bold" gutterBottom>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.desc}
+                    </Typography>
+                  </Card>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </>
+        )}
       </Container>
     </Layout>
   );

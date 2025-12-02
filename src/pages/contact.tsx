@@ -73,18 +73,30 @@ const ContactPage = () => {
                   />
                   <Box>
                     <Typography variant="h6">Opening Hours</Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      Mon - Sun: 10:00 AM - 10:00 PM
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ mt: 0.5 }}
+                    >
+                      Sunday: 7 am–8:30 pm
                     </Typography>
-                  </Box>
-                </Box>
-
-                <Box sx={{ display: "flex", mb: 3 }}>
-                  <EmailIcon color="primary" sx={{ mr: 2, fontSize: 30 }} />
-                  <Box>
-                    <Typography variant="h6">Email</Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      hello@guapatlu.com
+                    <Typography variant="body2" color="text.secondary">
+                      Monday: 8 am–8:30 pm
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Tuesday: 8 am–8:30 pm
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Wednesday: 8 am–8:30 pm
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Thursday: 8 am–8:30 pm
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Friday: 7 am–8:30 pm
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Saturday: 7 am–8:30 pm
                     </Typography>
                   </Box>
                 </Box>
@@ -94,7 +106,7 @@ const ContactPage = () => {
                   <Box>
                     <Typography variant="h6">Phone</Typography>
                     <Typography variant="body1" color="text.secondary">
-                      +1 234 567 890
+                      +62 857-7777-3839
                     </Typography>
                   </Box>
                 </Box>
@@ -104,13 +116,23 @@ const ContactPage = () => {
                     Follow Us
                   </Typography>
                   <Box>
-                    <IconButton color="primary" aria-label="facebook">
+                    {/* <IconButton color="primary" aria-label="facebook">
                       <FacebookIcon fontSize="large" />
-                    </IconButton>
-                    <IconButton color="primary" aria-label="instagram">
+                    </IconButton> */}
+                    <IconButton
+                      color="primary"
+                      href="https://www.instagram.com/guapatlu.bakmi"
+                      target="_blank"
+                      aria-label="instagram"
+                    >
                       <InstagramIcon fontSize="large" />
                     </IconButton>
-                    <IconButton color="primary" aria-label="tiktok">
+                    <IconButton
+                      color="primary"
+                      href="https://www.tiktok.com/@guapatlubakmi"
+                      target="_blank"
+                      aria-label="tiktok"
+                    >
                       <SvgIcon fontSize="large">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                       </SvgIcon>
@@ -125,7 +147,7 @@ const ContactPage = () => {
                 sx={{ height: "100%", minHeight: 400, overflow: "hidden" }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153169!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d22e4200f949!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1633072871234!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2087445876447!2d106.89881287499654!3d-6.234999193757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f54df9a12dad%3A0xb4c0de41f0390bdf!2sguapatlu%20bakmi!5e0!3m2!1sen!2sid!4v1701363762000!5m2!1sen!2sid"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

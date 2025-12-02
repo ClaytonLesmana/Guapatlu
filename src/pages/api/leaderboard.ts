@@ -1,46 +1,27 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
 
+type LeaderboardUser = {
+  rank: number;
+  name: string;
+  points: number;
+  badge: string;
+  badgeColor: string;
+};
+
 type Data = {
   message?: string;
   error?: string;
-  data?: {
-    name: string;
-    phone: string;
-    dob: string;
-    total: number;
-    points: number;
-  };
+  data?: LeaderboardUser[];
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  if (req.method !== "POST") {
+  if (req.method !== "GET") {
     return res.status(405).json({ message: "Method not allowed" });
   }
-
-  const { phone } = req.body;
-
-  if (!phone) {
-    return res.status(400).json({ message: "Phone number is required" });
-  }
-
-  // Normalize Indonesian phone number to standard format (08xxxxxxxxx)
-  const normalizeIndonesianPhone = (phone: string): string => {
-    const cleanPhone = phone.replace(/[\s-]/g, "").trim();
-
-    // Remove +62 or 62 prefix and add 0
-    if (cleanPhone.startsWith("+62")) {
-      return "0" + cleanPhone.substring(3);
-    } else if (cleanPhone.startsWith("62")) {
-      return "0" + cleanPhone.substring(2);
-    }
-
-    // Already starts with 0
-    return cleanPhone;
-  };
 
   try {
     // Prepare auth
@@ -87,35 +68,56 @@ export default async function handler(
 
     const rows = response.data.values || [];
 
-    // Find the user by phone number using normalized format
-    const normalizedInputPhone = normalizeIndonesianPhone(phone);
-    const userRow = rows.find((row, index) => {
-      if (index === 0 || !row[1]) return false; // Skip header row
-      const existingPhone = row[1].toString().replace(/^'/, "").trim();
-      const normalizedExistingPhone = normalizeIndonesianPhone(existingPhone);
-      return normalizedExistingPhone === normalizedInputPhone;
+    // Skip header row and process data
+    const users = rows
+      .slice(1) // Skip header
+      .filter((row) => row[0] && row[4]) // Must have name and points
+      .map((row) => ({
+        name: row[0] || "",
+        points: parseInt(row[4]) || 0,
+      }))
+      .sort((a, b) => b.points - a.points); // Sort by points descending
+
+    // Assign ranks and badges
+    const leaderboard: LeaderboardUser[] = users.map((user, index) => {
+      const rank = index + 1;
+      let badge = "Regular Customer";
+      let badgeColor = "#5C6BC0";
+
+      // Assign badges based on rank or points
+      if (rank === 1) {
+        badge = "Sultan Bakmi";
+        badgeColor = "#F4B400";
+      } else if (rank === 2) {
+        badge = "Bakmi Master";
+        badgeColor = "#C0C0C0";
+      } else if (rank === 3) {
+        badge = "Level 5 Pedas";
+        badgeColor = "#CD7F32";
+      } else if (user.points >= 100) {
+        badge = "Bakmi Master";
+        badgeColor = "#2E7D32";
+      } else if (user.points >= 75) {
+        badge = "Level 4 Pedas";
+        badgeColor = "#9C27B0";
+      } else if (user.points >= 50) {
+        badge = "Level 3 Pedas";
+        badgeColor = "#FF5722";
+      } else if (user.points >= 25) {
+        badge = "Bakmi Lover";
+        badgeColor = "#1976D2";
+      }
+
+      return {
+        rank,
+        name: user.name,
+        points: user.points,
+        badge,
+        badgeColor,
+      };
     });
 
-    if (!userRow) {
-      return res.status(404).json({
-        message: "Phone number not found. Please register first.",
-      });
-    }
-
-    // Return user data (strip leading quote from phone if present)
-    const phoneValue = userRow[1]
-      ? userRow[1].toString().replace(/^'/, "")
-      : "";
-
-    return res.status(200).json({
-      data: {
-        name: userRow[0] || "",
-        phone: phoneValue,
-        dob: userRow[2] || "",
-        total: parseInt(userRow[3]) || 0,
-        points: parseInt(userRow[4]) || 0,
-      },
-    });
+    return res.status(200).json({ data: leaderboard });
   } catch (error: any) {
     console.error("Google Sheets API Error:", error);
     return res
