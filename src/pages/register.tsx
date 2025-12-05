@@ -134,11 +134,11 @@ const RegisterPage = () => {
                   color="primary.main"
                   sx={{ fontWeight: "bold" }}
                 >
-                  Join Guapatlu Rewards
+                  Apa yang Didapatkan dari Guapatlu Rewards?
                 </Typography>
-                <Typography variant="h5" color="text.secondary" paragraph>
+                {/* <Typography variant="h5" color="text.secondary" paragraph>
                   Start earning points with every bite!
-                </Typography>
+                </Typography> */}
 
                 <Box sx={{ mt: 4 }}>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -147,7 +147,7 @@ const RegisterPage = () => {
                       sx={{ mr: 2, fontSize: 28 }}
                     />
                     <Typography variant="h6">
-                      Earn 1 point for every $1 spent
+                      Dapat 1 poin untuk setiap pembelian Rp10.000
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -156,7 +156,7 @@ const RegisterPage = () => {
                       sx={{ mr: 2, fontSize: 28 }}
                     />
                     <Typography variant="h6">
-                      Redeem points for free meals
+                      Tukarkan poin untuk reward yang menarik
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -165,7 +165,7 @@ const RegisterPage = () => {
                       sx={{ mr: 2, fontSize: 28 }}
                     />
                     <Typography variant="h6">
-                      Exclusive birthday treats
+                      Hadiah spesial ulang tahun
                     </Typography>
                   </Box>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -174,7 +174,7 @@ const RegisterPage = () => {
                       sx={{ mr: 2, fontSize: 28 }}
                     />
                     <Typography variant="h6">
-                      Member-only offers and events
+                      Promo & event khusus member
                     </Typography>
                   </Box>
                 </Box>

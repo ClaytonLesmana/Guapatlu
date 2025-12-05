@@ -29,136 +29,112 @@ const menuItems = [
       "Bakmi keriting/Lurus Kenyal Yang Gurih, Dilengkapi Kuah Berisi Daging Babi Cincang, Bakso Ikan, Dan Otak Otak Ikan Yang Hangat Dan Lezat",
     price: "Rp.65.000",
     category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?burger",
+    image: "/bakmi jhambi.jpg",
   },
   {
     id: 2,
-    name: "BAKMI - RED (DR BUAH BIT)",
-    description: "Al dente pasta tossed in a fiery tomato sauce.",
-    price: "$14.50",
-    category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?pasta",
-  },
-  {
-    id: 3,
     name: "Bihun",
     description: "Beef patty, cheddar cheese, lettuce, tomato, onion.",
     price: "$10.99",
     category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?cheeseburger",
+    image: "/Misoa Guapatlu.jpg",
+  },
+  {
+    id: 3,
+    name: "Bakmi (Lebar) Khas Jambi",
+    description: "Freshly squeezed lemons with mint.",
+    price: "$4.50",
+    category: "Bakmi",
+    image: "/bakmi lebar.jpg",
   },
   {
     id: 4,
-    name: "Bakmi Hijau Khas Jambi",
-    description: "Creamy sauce with pancetta and egg yolk.",
-    price: "$13.50",
-    category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?carbonara",
-  },
-  {
-    id: 5,
-    name: "Bakmi (Lebar) Khas Jambi",
-    description: "Freshly squeezed lemons with mint.",
-    price: "$4.50",
-    category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?lemonade",
-  },
-  {
-    id: 6,
-    name: "Bakmi (Lebar) Khas Jambi",
-    description: "Freshly squeezed lemons with mint.",
-    price: "$4.50",
-    category: "Bakmi",
-    image: "https://source.unsplash.com/random/400x300/?lemonade",
-  },
-  {
-    id: 7,
     name: "Lapchiong",
     description: "Sosis Kering Daging Babi Yang Cocok Jadi Topping Bakmi",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/Lapciong.jpg",
   },
   {
-    id: 8,
+    id: 5,
     name: "Siomay Babi Udang (Isi 2)",
     description:
       "Siomay Hangat Homemade, Berisi Daging Babi Dan Udang Yang Fresh. Harga Untuk 1 Porsi (2pcs)",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/Siomay.jpg",
   },
   {
-    id: 9,
+    id: 6,
     name: "KULIT PANGSIT GORENG",
     description:
       "Siomay Hangat Homemade, Berisi Daging Babi Dan Udang Yang Fresh. Harga Untuk 1 Porsi (2pcs)",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/pangsit goreng.jpg",
   },
   {
-    id: 10,
+    id: 7,
     name: "PANGSIT REBUS (4PC)",
     description:
       "Pangsit Rebus Isi Babi dan udang, Guriiihh Nagiiiih Bangeeet Gak Cukup 1 Makannya. Di Sajikan Nyemek2 Gitu Ya, Tapi Kalo Mau Minta Extra Kuah Boleh Aja , Kasih Notes Ya",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/pangsit.jpg",
   },
   {
-    id: 11,
+    id: 8,
     name: "Telor Omega Kecap (1pc)",
     description:
       "Telor Omega Marinated, Gurih, Padat Texture Nya , Enyaaak , Cuco Mendampingi Bakmi",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/telor omega.png",
   },
   {
-    id: 12,
+    id: 9,
     name: "KUAH JAMBI ISI DAGING",
     description:
       "ISI: DAGING CINCANG, BAKSO IKAN , FISH CAKE, KUAH NYA NGALLLDDUU BANGETTT RASA NYA GOOONG BANGET, CUZZZ DI COBA",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/Kuah Jambi.jpg",
   },
   {
-    id: 13,
+    id: 10,
     name: "SATE BABI GUAPATLU (1pc)",
     description:
       "ISI: DAGING CINCANG, BAKSO IKAN , FISH CAKE, KUAH NYA NGALLLDDUU BANGETTT RASA NYA GOOONG BANGET, CUZZZ DI COBA",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/Sate Babi.jpg",
   },
   {
-    id: 13,
+    id: 11,
     name: "Bakso Goreng (1 Pc)",
     description: "Bakso goreng pelengkap bakmi. Harga per/pcs",
     price: "$6.99",
     category: "Sides",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/bakso goreng.jpg",
   },
   {
-    id: 14,
+    id: 12,
     name: "Liang Teh",
     description: "Bakso goreng pelengkap bakmi. Harga per/pcs",
     price: "$6.99",
     category: "Drinks",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/liangteh.png",
   },
   {
-    id: 15,
+    id: 13,
     name: "Susu Kacang",
     description: "Bakso goreng pelengkap bakmi. Harga per/pcs",
     price: "$6.99",
     category: "Drinks",
-    image: "https://source.unsplash.com/random/400x300/?fries",
+    image: "/susuKacang.png",
   },
   {
-    id: 16,
+    id: 14,
     name: "Paket Bakmi Set + 1 Bakmi Polos",
     description: "Bakso goreng pelengkap bakmi. Harga per/pcs",
     price: "$6.99",
@@ -166,7 +142,7 @@ const menuItems = [
     image: "https://source.unsplash.com/random/400x300/?fries",
   },
   {
-    id: 17,
+    id: 15,
     name: "Paket Bakmi Set + 2pcs Bakso Goreng",
     description: "Bakso goreng pelengkap bakmi. Harga per/pcs",
     price: "$6.99",
@@ -174,7 +150,7 @@ const menuItems = [
     image: "https://source.unsplash.com/random/400x300/?fries",
   },
   {
-    id: 18,
+    id: 16,
     name: "Paket Bakmi Set + 2pcs Siomay",
     description:
       "1 Set Bakmi, Dengan Tambahan 2pcs Siomay Babi Udang Yang Hangat Dan Lezat. Harga Lebih Hemat",
@@ -248,7 +224,8 @@ const MenuPage = () => {
             }}
           >
             <Typography variant="body2" fontWeight="bold">
-              Catatan: Harga online dan offline dapat berbeda tergantung platform pengiriman.
+              Catatan: Harga online dan offline dapat berbeda tergantung
+              platform pengiriman.
             </Typography>
           </Alert>
 
