@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -121,165 +122,183 @@ const RegisterPage = () => {
   };
 
   return (
-    <Layout>
-      <Box sx={{ py: 8, bgcolor: "background.default" }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Box>
-                <Typography
-                  variant="h3"
-                  component="h1"
-                  gutterBottom
-                  color="primary.main"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Apa yang Didapatkan dari Guapatlu Rewards?
-                </Typography>
-                {/* <Typography variant="h5" color="text.secondary" paragraph>
+    <>
+      <Head>
+        <title>Daftar Member | Guapatlu</title>
+        <meta
+          name="description"
+          content="Daftar sebagai member Guapatlu dan dapatkan bonus 10 poin langsung! Nikmati reward gratis setiap pembelian. 1 poin = Rp 10.000. Poin tidak pernah hangus!"
+        />
+        <link rel="canonical" href="https://guapatlu.com/register" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://guapatlu.com/register" />
+        <meta property="og:title" content="Daftar Member - Guapatlu" />
+        <meta
+          property="og:description"
+          content="Daftar sebagai member Guapatlu dan dapatkan bonus 10 poin langsung! Nikmati reward gratis setiap pembelian."
+        />
+      </Head>
+      <Layout>
+        <Box sx={{ py: 8, bgcolor: "background.default" }}>
+          <Container maxWidth="lg">
+            <Grid container spacing={6} alignItems="center">
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box>
+                  <Typography
+                    variant="h3"
+                    component="h1"
+                    gutterBottom
+                    color="primary.main"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Apa yang Didapatkan dari Guapatlu Rewards?
+                  </Typography>
+                  {/* <Typography variant="h5" color="text.secondary" paragraph>
                   Start earning points with every bite!
                 </Typography> */}
 
-                <Box sx={{ mt: 4 }}>
-                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                    <CheckCircleIcon
-                      color="success"
-                      sx={{ mr: 2, fontSize: 28 }}
-                    />
-                    <Typography variant="h6">
-                      Dapat 1 poin untuk setiap pembelian Rp10.000
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                    <CheckCircleIcon
-                      color="success"
-                      sx={{ mr: 2, fontSize: 28 }}
-                    />
-                    <Typography variant="h6">
-                      Tukarkan poin untuk reward yang menarik
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                    <CheckCircleIcon
-                      color="success"
-                      sx={{ mr: 2, fontSize: 28 }}
-                    />
-                    <Typography variant="h6">
-                      Hadiah spesial ulang tahun
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                    <CheckCircleIcon
-                      color="success"
-                      sx={{ mr: 2, fontSize: 28 }}
-                    />
-                    <Typography variant="h6">
-                      Promo & event khusus member
-                    </Typography>
+                  <Box sx={{ mt: 4 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <CheckCircleIcon
+                        color="success"
+                        sx={{ mr: 2, fontSize: 28 }}
+                      />
+                      <Typography variant="h6">
+                        Dapat 1 poin untuk setiap pembelian Rp10.000
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <CheckCircleIcon
+                        color="success"
+                        sx={{ mr: 2, fontSize: 28 }}
+                      />
+                      <Typography variant="h6">
+                        Tukarkan poin untuk reward yang menarik
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <CheckCircleIcon
+                        color="success"
+                        sx={{ mr: 2, fontSize: 28 }}
+                      />
+                      <Typography variant="h6">
+                        Hadiah spesial ulang tahun
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <CheckCircleIcon
+                        color="success"
+                        sx={{ mr: 2, fontSize: 28 }}
+                      />
+                      <Typography variant="h6">
+                        Promo & event khusus member
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Paper elevation={3} sx={{ p: 4 }}>
-                <Typography
-                  variant="h4"
-                  component="h2"
-                  align="center"
-                  gutterBottom
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Create Account
-                </Typography>
-                <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                  <Grid container spacing={2}>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="fullName"
-                        label="Full Name"
-                        name="fullName"
-                        autoComplete="name"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="phone"
-                        label="Phone Number"
-                        name="phone"
-                        autoComplete="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        error={!!phoneError}
-                        helperText={
-                          phoneError || "Contoh: 08123456789 atau +628123456789"
-                        }
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        required
-                        fullWidth
-                        id="dob"
-                        label="Date of Birth"
-                        name="dob"
-                        type="date"
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        value={formData.dob}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                  </Grid>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    size="large"
-                    disabled={loading}
-                    sx={{ mt: 4, py: 1.5, fontSize: "1.1rem" }}
-                  >
-                    {loading ? (
-                      <CircularProgress size={24} sx={{ color: "white" }} />
-                    ) : (
-                      "Register Now"
-                    )}
-                  </Button>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Paper elevation={3} sx={{ p: 4 }}>
                   <Typography
-                    variant="caption"
-                    display="block"
+                    variant="h4"
+                    component="h2"
                     align="center"
-                    sx={{ mt: 2, color: "text.secondary" }}
+                    gutterBottom
+                    sx={{ fontWeight: "bold" }}
                   >
-                    By registering, you agree to our Terms of Service and
-                    Privacy Policy.
+                    Create Account
                   </Typography>
-                </Box>
-              </Paper>
+                  <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Grid container spacing={2}>
+                      <Grid size={{ xs: 12 }}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="fullName"
+                          label="Full Name"
+                          name="fullName"
+                          autoComplete="name"
+                          value={formData.fullName}
+                          onChange={handleChange}
+                        />
+                      </Grid>
+                      <Grid size={{ xs: 12 }}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="email"
+                          label="Email Address"
+                          name="email"
+                          autoComplete="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                        />
+                      </Grid>
+                      <Grid size={{ xs: 12 }}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="phone"
+                          label="Phone Number"
+                          name="phone"
+                          autoComplete="tel"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          error={!!phoneError}
+                          helperText={
+                            phoneError ||
+                            "Contoh: 08123456789 atau +628123456789"
+                          }
+                        />
+                      </Grid>
+                      <Grid size={{ xs: 12 }}>
+                        <TextField
+                          required
+                          fullWidth
+                          id="dob"
+                          label="Date of Birth"
+                          name="dob"
+                          type="date"
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          value={formData.dob}
+                          onChange={handleChange}
+                        />
+                      </Grid>
+                    </Grid>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      size="large"
+                      disabled={loading}
+                      sx={{ mt: 4, py: 1.5, fontSize: "1.1rem" }}
+                    >
+                      {loading ? (
+                        <CircularProgress size={24} sx={{ color: "white" }} />
+                      ) : (
+                        "Register Now"
+                      )}
+                    </Button>
+                    <Typography
+                      variant="caption"
+                      display="block"
+                      align="center"
+                      sx={{ mt: 2, color: "text.secondary" }}
+                    >
+                      By registering, you agree to our Terms of Service and
+                      Privacy Policy.
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </Layout>
+          </Container>
+        </Box>
+      </Layout>
+    </>
   );
 };
 

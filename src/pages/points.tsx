@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -129,128 +130,76 @@ const PointsPage = () => {
   ];
 
   return (
-    <Layout>
-      <Box sx={{ bgcolor: "secondary.main", minHeight: "100vh", pb: 8 }}>
-        {/* Header Section */}
-        <Box
-          sx={{
-            bgcolor: "#d11919",
-            color: "white",
-            py: 8,
-            position: "relative",
-            overflow: "hidden",
-            textAlign: "center",
-          }}
-        >
-          <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              mb={2}
-            >
-              <CardGiftcardIcon
-                sx={{ fontSize: 40, mr: 2, color: "#FFD700" }}
-              />
-              <Typography variant="h3" component="h1" fontWeight="bold">
-                Cek Poin Kamu
-              </Typography>
-            </Box>
-            <Typography
-              variant="h6"
-              sx={{ maxWidth: 600, mx: "auto", opacity: 0.9 }}
-            >
-              Perjalananmu menuju Bakmi Gratis dimulai di sini.
-            </Typography>
-          </Container>
-          {/* Background decoration */}
+    <>
+      <Head>
+        <title>Cek Poin Saya | Guapatlu</title>
+        <meta
+          name="description"
+          content="Cek poin reward Guapatlu Anda dan tukarkan dengan menu gratis! 1 poin = Rp 10.000. Poin tidak pernah hangus dan tidak direset saat tukar hadiah."
+        />
+        <link rel="canonical" href="https://guapatlu.com/points" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://guapatlu.com/points" />
+        <meta property="og:title" content="Cek Poin - Guapatlu" />
+        <meta
+          property="og:description"
+          content="Cek poin reward Guapatlu Anda dan tukarkan dengan menu gratis! 1 poin = Rp 10.000."
+        />
+      </Head>
+      <Layout>
+        <Box sx={{ bgcolor: "secondary.main", minHeight: "100vh", pb: 8 }}>
+          {/* Header Section */}
           <Box
-            component="img"
-            src="/Kuah Jambi.jpg"
             sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: 0.2,
-              zIndex: 1,
-              filter: "blur(4px)",
-            }}
-          />
-        </Box>
-
-        <Container maxWidth="md" sx={{ mt: -4 }}>
-          {/* Input Card */}
-          <Card
-            elevation={4}
-            sx={{
-              p: 4,
-              borderRadius: 4,
-              textAlign: "center",
-              mb: 6,
+              bgcolor: "#d11919",
+              color: "white",
+              py: 8,
               position: "relative",
-              zIndex: 3,
+              overflow: "hidden",
+              textAlign: "center",
             }}
           >
-            <PhoneIphoneIcon sx={{ fontSize: 40, color: "#D11919", mb: 1 }} />
-            <Typography variant="h5" fontWeight="bold" gutterBottom>
-              Masukkan Nomor HP
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-              Lihat berapa poin yang sudah kamu kumpulkan!
-            </Typography>
-
-            <Box
-              sx={{
-                display: "flex",
-                gap: 2,
-                maxWidth: 500,
-                mx: "auto",
-                flexDirection: { xs: "column", sm: "row" },
-              }}
-            >
-              <TextField
-                fullWidth
-                placeholder="08123456789"
-                variant="outlined"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                sx={{
-                  "& .MuiOutlinedInput-root": {
-                    borderRadius: 2,
-                    bgcolor: "#F5F5F5",
-                  },
-                }}
-              />
-              <Button
-                variant="contained"
-                size="large"
-                onClick={handleCheckPoints}
-                disabled={loading}
-                sx={{
-                  background:
-                    "linear-gradient(45deg, #D11919 30%, #FF5722 90%)",
-                  borderRadius: 2,
-                  px: 4,
-                  fontWeight: "bold",
-                  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-                  whiteSpace: "nowrap",
-                  minWidth: 140,
-                }}
+            <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                mb={2}
               >
-                {loading ? (
-                  <CircularProgress size={24} sx={{ color: "white" }} />
-                ) : (
-                  "Lihat Poin"
-                )}
-              </Button>
-            </Box>
-          </Card>
+                <CardGiftcardIcon
+                  sx={{ fontSize: 40, mr: 2, color: "#FFD700" }}
+                />
+                <Typography variant="h3" component="h1" fontWeight="bold">
+                  Cek Poin Kamu
+                </Typography>
+              </Box>
+              <Typography
+                variant="h6"
+                sx={{ maxWidth: 600, mx: "auto", opacity: 0.9 }}
+              >
+                Perjalananmu menuju Bakmi Gratis dimulai di sini.
+              </Typography>
+            </Container>
+            {/* Background decoration */}
+            <Box
+              component="img"
+              src="/Kuah Jambi.jpg"
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: 0.2,
+                zIndex: 1,
+                filter: "blur(4px)",
+              }}
+            />
+          </Box>
 
-          {/* User Points Display */}
-          {userData && (
+          <Container maxWidth="md" sx={{ mt: -4 }}>
+            {/* Input Card */}
             <Card
               elevation={4}
               sx={{
@@ -258,446 +207,518 @@ const PointsPage = () => {
                 borderRadius: 4,
                 textAlign: "center",
                 mb: 6,
-                background: "linear-gradient(135deg, #d11919 0%, #ff5722 100%)",
-                color: "white",
-                animation: "slideIn 0.5s ease-out",
-                "@keyframes slideIn": {
-                  from: { opacity: 0, transform: "translateY(20px)" },
-                  to: { opacity: 1, transform: "translateY(0)" },
-                },
+                position: "relative",
+                zIndex: 3,
               }}
             >
-              <Typography variant="h4" fontWeight="bold" gutterBottom>
-                {userData.name}
+              <PhoneIphoneIcon sx={{ fontSize: 40, color: "#D11919", mb: 1 }} />
+              <Typography variant="h5" fontWeight="bold" gutterBottom>
+                Masukkan Nomor HP
               </Typography>
-              <Typography variant="body1" sx={{ opacity: 0.9, mb: 3 }}>
-                {userData.phone}
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+                Lihat berapa poin yang sudah kamu kumpulkan!
               </Typography>
 
               <Box
                 sx={{
-                  bgcolor: "rgba(255,255,255,0.2)",
-                  borderRadius: 3,
-                  p: 4,
-                  mb: 2,
+                  display: "flex",
+                  gap: 2,
+                  maxWidth: 500,
+                  mx: "auto",
+                  flexDirection: { xs: "column", sm: "row" },
                 }}
               >
-                <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
-                  Your Points
-                </Typography>
-                <Typography
-                  variant="h1"
-                  fontWeight="bold"
+                <TextField
+                  fullWidth
+                  placeholder="08123456789"
+                  variant="outlined"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                   sx={{
-                    fontSize: { xs: "3rem", md: "4rem" },
-                    textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 2,
+                      bgcolor: "#F5F5F5",
+                    },
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleCheckPoints}
+                  disabled={loading}
+                  sx={{
+                    background:
+                      "linear-gradient(45deg, #D11919 30%, #FF5722 90%)",
+                    borderRadius: 2,
+                    px: 4,
+                    fontWeight: "bold",
+                    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+                    whiteSpace: "nowrap",
+                    minWidth: 140,
                   }}
                 >
-                  {animatedPoints}
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8, mt: 1 }}>
-                  {100 - userData.points > 0
-                    ? `${100 - userData.points} points until free Bakmi!`
-                    : "You can redeem a free Bakmi! 🎉"}
-                </Typography>
+                  {loading ? (
+                    <CircularProgress size={24} sx={{ color: "white" }} />
+                  ) : (
+                    "Lihat Poin"
+                  )}
+                </Button>
               </Box>
             </Card>
-          )}
 
-          {/* Points System Explanation - Accordion */}
-          <Accordion
-            elevation={3}
-            sx={{
-              mb: 6,
-              borderRadius: 4,
-              bgcolor: "#d11919",
-              overflow: "hidden",
-              "&:before": {
-                display: "none",
-              },
-              "&.Mui-expanded": {
-                margin: 0,
-                mb: 6,
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white", fontSize: 32 }} />
-              }
+            {/* User Points Display */}
+            {userData && (
+              <Card
+                elevation={4}
+                sx={{
+                  p: 4,
+                  borderRadius: 4,
+                  textAlign: "center",
+                  mb: 6,
+                  background:
+                    "linear-gradient(135deg, #d11919 0%, #ff5722 100%)",
+                  color: "white",
+                  animation: "slideIn 0.5s ease-out",
+                  "@keyframes slideIn": {
+                    from: { opacity: 0, transform: "translateY(20px)" },
+                    to: { opacity: 1, transform: "translateY(0)" },
+                  },
+                }}
+              >
+                <Typography variant="h4" fontWeight="bold" gutterBottom>
+                  {userData.name}
+                </Typography>
+                <Typography variant="body1" sx={{ opacity: 0.9, mb: 3 }}>
+                  {userData.phone}
+                </Typography>
+
+                <Box
+                  sx={{
+                    bgcolor: "rgba(255,255,255,0.2)",
+                    borderRadius: 3,
+                    p: 4,
+                    mb: 2,
+                  }}
+                >
+                  <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
+                    Your Points
+                  </Typography>
+                  <Typography
+                    variant="h1"
+                    fontWeight="bold"
+                    sx={{
+                      fontSize: { xs: "3rem", md: "4rem" },
+                      textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    {animatedPoints}
+                  </Typography>
+                  <Typography variant="body2" sx={{ opacity: 0.8, mt: 1 }}>
+                    {100 - userData.points > 0
+                      ? `${100 - userData.points} points until free Bakmi!`
+                      : "You can redeem a free Bakmi! 🎉"}
+                  </Typography>
+                </Box>
+              </Card>
+            )}
+
+            {/* Points System Explanation - Accordion */}
+            <Accordion
+              elevation={3}
               sx={{
+                mb: 6,
                 borderRadius: 4,
-                color: "white",
-                "&:hover": {
-                  bgcolor: "#b91616",
+                bgcolor: "#d11919",
+                overflow: "hidden",
+                "&:before": {
+                  display: "none",
+                },
+                "&.Mui-expanded": {
+                  margin: 0,
+                  mb: 6,
                 },
               }}
             >
-              <Box display="flex" alignItems="center">
-                <CardGiftcardIcon sx={{ fontSize: 36, mr: 2 }} />
-                <Box>
-                  <Typography variant="h6" fontWeight="bold" color="white">
-                    Cara Kerja Sistem Poin
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{ color: "rgba(255,255,255,0.8)" }}
-                  >
-                    Klik untuk melihat detail
-                  </Typography>
+              <AccordionSummary
+                expandIcon={
+                  <ExpandMoreIcon sx={{ color: "white", fontSize: 32 }} />
+                }
+                sx={{
+                  borderRadius: 4,
+                  color: "white",
+                  "&:hover": {
+                    bgcolor: "#b91616",
+                  },
+                }}
+              >
+                <Box display="flex" alignItems="center">
+                  <CardGiftcardIcon sx={{ fontSize: 36, mr: 2 }} />
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold" color="white">
+                      Cara Kerja Sistem Poin
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "rgba(255,255,255,0.8)" }}
+                    >
+                      Klik untuk melihat detail
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
-            </AccordionSummary>
-            <AccordionDetails sx={{ pt: 3, pb: 4, px: 4 }}>
-              <Grid container spacing={3}>
-                <Grid size={{ xs: 12, md: 6 }}>
-                  <Box
-                    sx={{
-                      p: 3,
-                      bgcolor: "white",
-                      borderRadius: 2,
-                      height: "100%",
-                      boxShadow: 2,
-                      border: "2px solid #d11919",
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      fontWeight="bold"
-                      gutterBottom
-                      color="#d11919"
-                    >
-                      💰 Cara Mendapatkan Poin
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      paragraph
-                      sx={{ color: "#d11919", fontWeight: 600 }}
-                    >
-                      1 Poin = Rp 10.000
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      paragraph
-                    >
-                      Setiap kali kamu belanja di Guapatlu, kamu akan mendapat
-                      poin otomatis!
-                    </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ pt: 3, pb: 4, px: 4 }}>
+                <Grid container spacing={3}>
+                  <Grid size={{ xs: 12, md: 6 }}>
                     <Box
                       sx={{
-                        bgcolor: "#ffebee",
-                        p: 2,
-                        borderRadius: 1,
-                        mt: 2,
-                        border: "1px solid #ffcdd2",
+                        p: 3,
+                        bgcolor: "white",
+                        borderRadius: 2,
+                        height: "100%",
+                        boxShadow: 2,
+                        border: "2px solid #d11919",
                       }}
                     >
                       <Typography
-                        variant="body2"
+                        variant="h6"
                         fontWeight="bold"
                         gutterBottom
                         color="#d11919"
                       >
-                        Contoh:
+                        💰 Cara Mendapatkan Poin
                       </Typography>
-                      <Typography variant="body2">
-                        • Belanja Rp 50.000 ={" "}
-                        <strong style={{ color: "#d11919" }}>5 poin</strong>
+                      <Typography
+                        variant="body1"
+                        paragraph
+                        sx={{ color: "#d11919", fontWeight: 600 }}
+                      >
+                        1 Poin = Rp 10.000
                       </Typography>
-                      <Typography variant="body2">
-                        • Belanja Rp 100.000 ={" "}
-                        <strong style={{ color: "#d11919" }}>10 poin</strong>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        paragraph
+                      >
+                        Setiap kali kamu belanja di Guapatlu, kamu akan mendapat
+                        poin otomatis!
                       </Typography>
-                      <Typography variant="body2">
-                        • Belanja Rp 250.000 ={" "}
-                        <strong style={{ color: "#d11919" }}>25 poin</strong>
-                      </Typography>
+                      <Box
+                        sx={{
+                          bgcolor: "#ffebee",
+                          p: 2,
+                          borderRadius: 1,
+                          mt: 2,
+                          border: "1px solid #ffcdd2",
+                        }}
+                      >
+                        <Typography
+                          variant="body2"
+                          fontWeight="bold"
+                          gutterBottom
+                          color="#d11919"
+                        >
+                          Contoh:
+                        </Typography>
+                        <Typography variant="body2">
+                          • Belanja Rp 50.000 ={" "}
+                          <strong style={{ color: "#d11919" }}>5 poin</strong>
+                        </Typography>
+                        <Typography variant="body2">
+                          • Belanja Rp 100.000 ={" "}
+                          <strong style={{ color: "#d11919" }}>10 poin</strong>
+                        </Typography>
+                        <Typography variant="body2">
+                          • Belanja Rp 250.000 ={" "}
+                          <strong style={{ color: "#d11919" }}>25 poin</strong>
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
-                </Grid>
+                  </Grid>
 
-                <Grid size={{ xs: 12, md: 6 }}>
-                  <Box
-                    sx={{
-                      p: 3,
-                      bgcolor: "white",
-                      borderRadius: 2,
-                      height: "100%",
-                      boxShadow: 2,
-                      border: "2px solid #d11919",
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      fontWeight="bold"
-                      gutterBottom
-                      color="#d11919"
+                  <Grid size={{ xs: 12, md: 6 }}>
+                    <Box
+                      sx={{
+                        p: 3,
+                        bgcolor: "white",
+                        borderRadius: 2,
+                        height: "100%",
+                        boxShadow: 2,
+                        border: "2px solid #d11919",
+                      }}
                     >
-                      🎁 Tukar Poin dengan Hadiah
-                    </Typography>
-                    <Box component="ul" sx={{ pl: 2, mt: 2 }}>
                       <Typography
-                        component="li"
-                        variant="body2"
-                        sx={{ mb: 1.5 }}
+                        variant="h6"
+                        fontWeight="bold"
+                        gutterBottom
+                        color="#d11919"
                       >
-                        <strong style={{ color: "#d11919" }}>15 Poin</strong> →
-                        Free Es Teh
+                        🎁 Tukar Poin dengan Hadiah
                       </Typography>
-                      <Typography
-                        component="li"
-                        variant="body2"
-                        sx={{ mb: 1.5 }}
-                      >
-                        <strong style={{ color: "#d11919" }}>30 Poin</strong> →
-                        Free Pangsit (Rebus/Goreng)
-                      </Typography>
-                      <Typography
-                        component="li"
-                        variant="body2"
-                        sx={{ mb: 1.5 }}
-                      >
-                        <strong style={{ color: "#d11919" }}>60 Poin</strong> →
-                        Free Bakmi Jambi + Es Teh
-                      </Typography>
-                      <Typography
-                        component="li"
-                        variant="body2"
-                        sx={{ mb: 1.5 }}
-                      >
-                        <strong style={{ color: "#d11919" }}>100 Poin</strong> →
-                        Free Bakmi Jambi untuk 2 Orang
-                      </Typography>
+                      <Box component="ul" sx={{ pl: 2, mt: 2 }}>
+                        <Typography
+                          component="li"
+                          variant="body2"
+                          sx={{ mb: 1.5 }}
+                        >
+                          <strong style={{ color: "#d11919" }}>15 Poin</strong>{" "}
+                          → Free Es Teh
+                        </Typography>
+                        <Typography
+                          component="li"
+                          variant="body2"
+                          sx={{ mb: 1.5 }}
+                        >
+                          <strong style={{ color: "#d11919" }}>30 Poin</strong>{" "}
+                          → Free Pangsit (Rebus/Goreng)
+                        </Typography>
+                        <Typography
+                          component="li"
+                          variant="body2"
+                          sx={{ mb: 1.5 }}
+                        >
+                          <strong style={{ color: "#d11919" }}>60 Poin</strong>{" "}
+                          → Free Bakmi Jambi + Es Teh
+                        </Typography>
+                        <Typography
+                          component="li"
+                          variant="body2"
+                          sx={{ mb: 1.5 }}
+                        >
+                          <strong style={{ color: "#d11919" }}>100 Poin</strong>{" "}
+                          → Free Bakmi Jambi untuk 2 Orang
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
-                </Grid>
+                  </Grid>
 
-                <Grid size={{ xs: 12 }}>
-                  <Box
-                    sx={{
-                      p: 3,
-                      bgcolor: "white",
-                      borderRadius: 2,
-                      boxShadow: 2,
-                    }}
-                  >
-                    <Typography
-                      variant="body1"
-                      fontWeight="bold"
-                      gutterBottom
-                      color="#d11919"
+                  <Grid size={{ xs: 12 }}>
+                    <Box
+                      sx={{
+                        p: 3,
+                        bgcolor: "white",
+                        borderRadius: 2,
+                        boxShadow: 2,
+                      }}
                     >
-                      ⭐ Keuntungan Lainnya:
-                    </Typography>
-                    <Grid container spacing={2}>
-                      <Grid size={{ xs: 12, sm: 4 }}>
-                        <Typography variant="body2">
-                          ✓ Poin{" "}
-                          <strong style={{ color: "#d11919" }}>
-                            tidak pernah hangus
-                          </strong>
-                        </Typography>
+                      <Typography
+                        variant="body1"
+                        fontWeight="bold"
+                        gutterBottom
+                        color="#d11919"
+                      >
+                        ⭐ Keuntungan Lainnya:
+                      </Typography>
+                      <Grid container spacing={2}>
+                        <Grid size={{ xs: 12, sm: 4 }}>
+                          <Typography variant="body2">
+                            ✓ Poin{" "}
+                            <strong style={{ color: "#d11919" }}>
+                              tidak pernah hangus
+                            </strong>
+                          </Typography>
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 4 }}>
+                          <Typography variant="body2">
+                            ✓ Poin{" "}
+                            <strong style={{ color: "#d11919" }}>
+                              tidak direset
+                            </strong>{" "}
+                            setelah ditukar
+                          </Typography>
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 4 }}>
+                          <Typography variant="body2">
+                            ✓ Bonus{" "}
+                            <strong style={{ color: "#d11919" }}>
+                              10 poin
+                            </strong>{" "}
+                            saat registrasi
+                          </Typography>
+                        </Grid>
                       </Grid>
-                      <Grid size={{ xs: 12, sm: 4 }}>
-                        <Typography variant="body2">
-                          ✓ Poin{" "}
-                          <strong style={{ color: "#d11919" }}>
-                            tidak direset
-                          </strong>{" "}
-                          setelah ditukar
-                        </Typography>
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 4 }}>
-                        <Typography variant="body2">
-                          ✓ Bonus{" "}
-                          <strong style={{ color: "#d11919" }}>10 poin</strong>{" "}
-                          saat registrasi
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Box>
+                    </Box>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </AccordionDetails>
-          </Accordion>
+              </AccordionDetails>
+            </Accordion>
 
-          {/* Reward Journey */}
-          <Card
-            elevation={2}
-            sx={{
-              p: 4,
-              borderRadius: 4,
-              mb: 6,
-              textAlign: "center",
-            }}
-          >
-            <Typography
-              variant="h5"
-              fontWeight="bold"
-              gutterBottom
-              sx={{ mb: 4 }}
-            >
-              Perjalanan Reward Kamu
-            </Typography>
-
-            <Box
+            {/* Reward Journey */}
+            <Card
+              elevation={2}
               sx={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                px: 0,
+                p: 4,
+                borderRadius: 4,
+                mb: 6,
+                textAlign: "center",
               }}
             >
-              {/* Background Line */}
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                gutterBottom
+                sx={{ mb: 4 }}
+              >
+                Perjalanan Reward Kamu
+              </Typography>
+
               <Box
                 sx={{
-                  position: "absolute",
-                  top: 24,
-                  left: 24,
-                  right: 24,
-                  height: 4,
-                  bgcolor: "#E0E0E0",
-                  zIndex: 0,
-                  borderRadius: 2,
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  px: 0,
                 }}
-              />
-
-              {/* Animated Progress Line */}
-              {userData && (
+              >
+                {/* Background Line */}
                 <Box
                   sx={{
                     position: "absolute",
                     top: 24,
                     left: 24,
+                    right: 24,
                     height: 4,
-                    bgcolor: "#d11919",
+                    bgcolor: "#E0E0E0",
                     zIndex: 0,
                     borderRadius: 2,
-                    width: `${Math.min((userData.points / 100) * 100, 100)}%`,
-                    transition: "width 1.5s ease-out",
-                    animation: "progressGrow 1.5s ease-out",
-                    "@keyframes progressGrow": {
-                      from: { width: "0%" },
-                      to: {
-                        width: `${Math.min(
-                          (userData.points / 100) * 100,
-                          100
-                        )}%`,
-                      },
-                    },
                   }}
                 />
-              )}
 
-              {journeySteps.map((step, index) => (
-                <Box
-                  key={index}
+                {/* Animated Progress Line */}
+                {userData && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 24,
+                      left: 24,
+                      height: 4,
+                      bgcolor: "#d11919",
+                      zIndex: 0,
+                      borderRadius: 2,
+                      width: `${Math.min((userData.points / 100) * 100, 100)}%`,
+                      transition: "width 1.5s ease-out",
+                      animation: "progressGrow 1.5s ease-out",
+                      "@keyframes progressGrow": {
+                        from: { width: "0%" },
+                        to: {
+                          width: `${Math.min(
+                            (userData.points / 100) * 100,
+                            100
+                          )}%`,
+                        },
+                      },
+                    }}
+                  />
+                )}
+
+                {journeySteps.map((step, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      position: "relative",
+                      zIndex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Avatar
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        bgcolor:
+                          userData && userData.points >= parseInt(step.points)
+                            ? "#d11919"
+                            : step.highlight
+                            ? "#F44336"
+                            : "#9E9E9E",
+                        color: "white",
+                        mb: 1,
+                        boxShadow:
+                          (userData &&
+                            userData.points >= parseInt(step.points)) ||
+                          step.highlight
+                            ? "0 4px 10px rgba(209,25,25,0.4)"
+                            : "none",
+                        border: "4px solid white",
+                        transition: "all 0.5s ease-out",
+                      }}
+                    >
+                      {step.icon}
+                    </Avatar>
+                    <Typography
+                      variant="caption"
+                      fontWeight="bold"
+                      sx={{
+                        color:
+                          (userData &&
+                            userData.points >= parseInt(step.points)) ||
+                          step.highlight
+                            ? "#D11919"
+                            : "text.primary",
+                        fontSize: { xs: "0.7rem", sm: "0.875rem" },
+                        transition: "color 0.5s ease-out",
+                      }}
+                    >
+                      {step.label}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {step.points}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Card>
+
+            {/* Footer Buttons */}
+            <Grid container spacing={2} justifyContent="center">
+              <Grid size={{ xs: 12, sm: 4 }}>
+                <Button
+                  fullWidth
+                  variant="outlined"
+                  startIcon={<RestaurantMenuIcon />}
+                  component={Link}
+                  href="/menu"
                   sx={{
-                    position: "relative",
-                    zIndex: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    py: 1.5,
+                    borderRadius: 2,
+                    color: "#D11919",
+                    borderColor: "#D11919",
+                    fontWeight: "bold",
+                    bgcolor: "white",
+                    "&:hover": {
+                      bgcolor: "#FFF5F5",
+                      borderColor: "#B71C1C",
+                    },
                   }}
                 >
-                  <Avatar
-                    sx={{
-                      width: 48,
-                      height: 48,
-                      bgcolor:
-                        userData && userData.points >= parseInt(step.points)
-                          ? "#d11919"
-                          : step.highlight
-                          ? "#F44336"
-                          : "#9E9E9E",
-                      color: "white",
-                      mb: 1,
-                      boxShadow:
-                        (userData &&
-                          userData.points >= parseInt(step.points)) ||
-                        step.highlight
-                          ? "0 4px 10px rgba(209,25,25,0.4)"
-                          : "none",
-                      border: "4px solid white",
-                      transition: "all 0.5s ease-out",
-                    }}
-                  >
-                    {step.icon}
-                  </Avatar>
-                  <Typography
-                    variant="caption"
-                    fontWeight="bold"
-                    sx={{
-                      color:
-                        (userData &&
-                          userData.points >= parseInt(step.points)) ||
-                        step.highlight
-                          ? "#D11919"
-                          : "text.primary",
-                      fontSize: { xs: "0.7rem", sm: "0.875rem" },
-                      transition: "color 0.5s ease-out",
-                    }}
-                  >
-                    {step.label}
-                  </Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    {step.points}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </Card>
-
-          {/* Footer Buttons */}
-          <Grid container spacing={2} justifyContent="center">
-            <Grid size={{ xs: 12, sm: 4 }}>
-              <Button
-                fullWidth
-                variant="outlined"
-                startIcon={<RestaurantMenuIcon />}
-                component={Link}
-                href="/menu"
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  color: "#D11919",
-                  borderColor: "#D11919",
-                  fontWeight: "bold",
-                  bgcolor: "white",
-                  "&:hover": {
-                    bgcolor: "#FFF5F5",
-                    borderColor: "#B71C1C",
-                  },
-                }}
-              >
-                Lihat Menu
-              </Button>
+                  Lihat Menu
+                </Button>
+              </Grid>
+              <Grid size={{ xs: 12, sm: 4 }}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  startIcon={<ShoppingCartIcon />}
+                  component={Link}
+                  href="/online"
+                  sx={{
+                    py: 1.5,
+                    borderRadius: 2,
+                    background:
+                      "linear-gradient(45deg, #D11919 30%, #FF5722 90%)",
+                    fontWeight: "bold",
+                    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+                  }}
+                >
+                  Order Online
+                </Button>
+              </Grid>
             </Grid>
-            <Grid size={{ xs: 12, sm: 4 }}>
-              <Button
-                fullWidth
-                variant="contained"
-                startIcon={<ShoppingCartIcon />}
-                component={Link}
-                href="/online"
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  background:
-                    "linear-gradient(45deg, #D11919 30%, #FF5722 90%)",
-                  fontWeight: "bold",
-                  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-                }}
-              >
-                Order Online
-              </Button>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </Layout>
+          </Container>
+        </Box>
+      </Layout>
+    </>
   );
 };
 

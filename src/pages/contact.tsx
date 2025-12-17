@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -14,10 +15,68 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import SvgIcon from "@mui/material/SvgIcon";
+import { generateBreadcrumbStructuredData } from "../config/structuredData";
 
 const ContactPage = () => {
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: 'Beranda', url: 'https://guapatlu.com/' },
+    { name: 'Kontak', url: 'https://guapatlu.com/contact' },
+  ]);
+
+  const contactStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    url: 'https://guapatlu.com/contact',
+    name: 'Hubungi Guapatlu',
+    description: 'Hubungi Guapatlu Bakmi Khas Jambi untuk reservasi, pertanyaan, atau feedback. Kami siap melayani Anda.',
+    mainEntity: {
+      '@type': 'Restaurant',
+      name: 'Guapatlu',
+      telephone: '+62 857-7777-3839',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Jl. Boulevard Raya Blok WA 2 No.25, RT.11/RW.15',
+        addressLocality: 'Kelapa Gading Timur',
+        addressRegion: 'DKI Jakarta',
+        postalCode: '14240',
+        addressCountry: 'ID',
+      },
+    },
+  };
+
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Kontak Kami | Guapatlu Bakmi Khas Jambi</title>
+        <meta
+          name="description"
+          content="Hubungi Guapatlu Bakmi Khas Jambi di Kelapa Gading. Alamat: Jl. Boulevard Raya Blok WA 2 No.25, Jakarta Utara. Telp: +62 857-7777-3839. Buka setiap hari!"
+        />
+        <link rel="canonical" href="https://guapatlu.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://guapatlu.com/contact" />
+        <meta
+          property="og:title"
+          content="Kontak Kami - Guapatlu Bakmi Khas Jambi"
+        />
+        <meta
+          property="og:description"
+          content="Hubungi Guapatlu Bakmi Khas Jambi di Kelapa Gading. Alamat: Jl. Boulevard Raya Blok WA 2 No.25, Jakarta Utara."
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(contactStructuredData),
+          }}
+        />
+      </Head>
+      <Layout>
       <Box sx={{ py: 8, bgcolor: "background.default" }}>
         <Container maxWidth="lg">
           <Typography
