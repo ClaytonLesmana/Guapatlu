@@ -219,6 +219,7 @@ const ContactPage = () => {
         </Container>
       </Box>
     </Layout>
+    </>
   );
 };
 

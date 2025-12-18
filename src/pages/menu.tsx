@@ -51,7 +51,8 @@ const menuItems: MenuItem[] = [
       "Bakmi khas Jambi ala Guapatlu dengan mie kenyal, kuah kaldu gurih, serta isian daging babi cincang dan bakso ikan yang melimpah. Rasa klasik turun-temurun yang bikin nagih dari suapan pertama.",
     categories: ["Bakmi", "Main"],
     image: "/bakmi jhambi.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025060309463736125&sourceID=20251218_214308_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025060309463736125",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
     variations: [
@@ -71,7 +72,8 @@ const menuItems: MenuItem[] = [
       "Lapchiong babi premium dengan aroma khas dan rasa manis-gurih yang kaya. Topping favorit untuk menambah kedalaman rasa bakmi.",
     categories: ["Sides"],
     image: "/Lapciong.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025071109470781794&sourceID=20251218_214626_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025071109470781794",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -84,7 +86,8 @@ const menuItems: MenuItem[] = [
       "Siomay homemade dengan isian babi dan udang segar yang padat dan lembut. Gurih, juicy, dan selalu disajikan hangat.",
     categories: ["Sides"],
     image: "/Siomay.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025061606572056415&sourceID=20251218_214604_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025061606572056415",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -96,7 +99,8 @@ const menuItems: MenuItem[] = [
       "Kulit pangsit digoreng hingga keemasan dan crispy. Pelengkap bakmi yang bikin tekstur makin seru.",
     categories: ["Sides"],
     image: "/pangsit goreng.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025072301572163348&sourceID=20251218_214641_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025072301572163348",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -108,7 +112,8 @@ const menuItems: MenuItem[] = [
       "Pangsit rebus isi babi dan udang dengan kuah hangat yang gurih dan comforting. Disajikan nyemek dan bikin pengen nambah.",
     categories: ["Sides"],
     image: "/pangsit.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025081511253828814&sourceID=20251218_214705_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025081511253828814",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -120,7 +125,8 @@ const menuItems: MenuItem[] = [
       "Telur omega dimarinasi kecap spesial hingga bumbu meresap sempurna. Simple tapi bikin bakmi makin nikmat.",
     categories: ["Sides"],
     image: "/telor omega.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025081511300230907&sourceID=20251218_214729_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025081511300230907",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -132,7 +138,8 @@ const menuItems: MenuItem[] = [
       "Kuah kaldu dimasak lama hingga gurih dan bold. Berisi daging cincang, bakso ikan, dan fish cake yang memuaskan.",
     categories: ["Sides"],
     image: "/Kuah Jambi.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025102911254468474&sourceID=20251218_214747_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025102911254468474",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -144,7 +151,8 @@ const menuItems: MenuItem[] = [
       "Daging babi pilihan dimarinasi bumbu khas lalu dipanggang hingga juicy dan caramelized. Gurih, wangi, dan penuh rasa.",
     categories: ["Sides"],
     image: "/Sate Babi.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025103004045529487&sourceID=20251218_214806_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025103004045529487",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -157,7 +165,8 @@ const menuItems: MenuItem[] = [
       "Nasi hangat disajikan dengan aneka lauk babi khas Guapatlu seperti chasio manis-gurih dan siobak crispy. Setiap porsi penuh rasa, kaya tekstur, dan bikin puas dari suapan pertama.",
     categories: ["Main"],
     image: "/nasi campur.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025120310510597447&sourceID=20251218_215140_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025120310510597447",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -169,7 +178,8 @@ const menuItems: MenuItem[] = [
       "Bakso ikan digoreng fresh hingga renyah dan gurih. Cocok sebagai topping atau camilan pendamping bakmi.",
     categories: ["Sides"],
     image: "/bakso goreng.jpg",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025061606550760920&sourceID=20251218_214546_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025061606550760920",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -181,7 +191,8 @@ const menuItems: MenuItem[] = [
       "Minuman herbal tradisional dengan rasa ringan dan menyegarkan. Pas untuk menyeimbangkan hidangan gurih.",
     categories: ["Drinks"],
     image: "/liangteh.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025071110343164394&sourceID=20251218_215107_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025071110343164394",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -193,7 +204,8 @@ const menuItems: MenuItem[] = [
       "Susu kacang buatan harian dengan rasa gurih-manis alami. Creamy dan menyegarkan tanpa rasa eneg.",
     categories: ["Drinks"],
     image: "/susuKacang.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025071110400990128&sourceID=20251218_215122_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025071110400990128",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -204,8 +216,9 @@ const menuItems: MenuItem[] = [
     detailedDescription:
       "Satu set bakmi lengkap ditambah satu porsi bakmi polos. Cocok untuk makan puas atau berbagi.",
     categories: ["Bundling"],
-    image: "https://source.unsplash.com/random/400x300/?fries",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    image: "/paket1.jpeg",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025061802493508826&sourceID=20251218_214928_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025061802493508826",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -216,8 +229,9 @@ const menuItems: MenuItem[] = [
     detailedDescription:
       "Bakmi set khas Guapatlu dengan 2 bakso goreng renyah sebagai pelengkap. Lebih puas dan lebih hemat.",
     categories: ["Bundling"],
-    image: "https://source.unsplash.com/random/400x300/?fries",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    image: "/paket2.jpeg",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025061802545109720&sourceID=20251218_214946_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025061802545109720",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -228,8 +242,9 @@ const menuItems: MenuItem[] = [
     detailedDescription:
       "Bakmi lengkap dengan tambahan 2 siomay babi udang homemade. Kombinasi favorit pelanggan setia.",
     categories: ["Bundling"],
-    image: "https://source.unsplash.com/random/400x300/?fries",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    image: "/paket3.jpeg",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025061802570139022&sourceID=20251218_215012_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025061802570139022",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -241,7 +256,8 @@ const menuItems: MenuItem[] = [
       "Chasio dimarinasi saus spesial lalu dipanggang hingga caramelized. Juicy, manis-gurih, dan kaya aroma.",
     categories: ["Sides", "Main"],
     image: "/chasio.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025071109470781794&sourceID=20251218_214626_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025071109470781794",
     gojekLink:
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
@@ -253,7 +269,7 @@ const menuItems: MenuItem[] = [
       "Kombinasi daging babi panggang manis-gurih dan siobak dengan kulit super renyah. Duo wajib untuk pork lovers.",
     categories: ["Sides", "Main"],
     image: "/chasio and siobak.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink: "",
     gojekLink: "",
   },
   {
@@ -264,7 +280,8 @@ const menuItems: MenuItem[] = [
       "Tiga jenis olahan babi dalam satu platter: juicy, crispy, dan gurih. Cocok untuk berbagi atau makan puas.",
     categories: ["Sides", "Main"],
     image: "/trio platter.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink:
+      "https://food.grab.com/id/en/restaurant/guapatlu-bakmi---kelapa-gading/6-C7DGWBMJMFXENA?exp_src=share&itemID=IDITE2025110806585534677&sourceID=20251218_214900_ED946BB6085E4D5985E18FB39CB7F776_MEXIS_IDITE2025110806585534677",
     gojekLink: "",
     variations: [
       { name: "Mie Kecil", image: "/trio platter.png" },
@@ -282,7 +299,7 @@ const menuItems: MenuItem[] = [
       "Dua jenis daging babi premium dengan tekstur dan rasa berbeda. Pas untuk 1–2 orang.",
     categories: ["Sides", "Main"],
     image: "/duo platter.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink: "",
     gojekLink: "",
     variations: [
       { name: "Mie Kecil", image: "/duo platter.png" },
@@ -300,7 +317,7 @@ const menuItems: MenuItem[] = [
       "Telur dimasak dengan timing pas untuk kuning yang lumer. Cocok sebagai topping bakmi atau lauk.",
     categories: ["Sides"],
     image: "/telor.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink: "",
     gojekLink: "",
   },
   {
@@ -311,7 +328,7 @@ const menuItems: MenuItem[] = [
       "Telur setengah matang dipadukan dengan kopi hitam hangat. Simpel, tradisional, dan mengenyangkan.",
     categories: ["Bundling"],
     image: "/Telor+kopi.png",
-    grabLink: "https://food.grab.com/id/en/restaurant/bakmi-guapatlu",
+    grabLink: "",
     gojekLink: "",
   },
   {
