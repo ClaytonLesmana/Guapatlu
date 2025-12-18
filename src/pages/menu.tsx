@@ -328,7 +328,7 @@ const menuItems: MenuItem[] = [
       "Telur setengah matang dipadukan dengan kopi hitam hangat. Simpel, tradisional, dan mengenyangkan.",
     categories: ["Bundling"],
     image: "/Telor+kopi.png",
-    grabLink: "",
+    grabLink: " ",
     gojekLink: "",
   },
   {
