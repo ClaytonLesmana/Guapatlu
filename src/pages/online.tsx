@@ -64,8 +64,9 @@ const OnlinePage = () => {
               variant="h6"
               sx={{ maxWidth: 600, mx: "auto", opacity: 0.9 }}
             >
-              Craving authentic flavors? Order now through our trusted delivery
-              partners and enjoy Guapatlu's delicious dishes at your doorstep.
+              Lagi ngidam Bakmi Jambi autentik? Pesan langsung lewat GrabFood
+              atau GoFood dan nikmati Bakmi Jambi Guapatlu yang hangat dan gurih
+              di rumahmu.
             </Typography>
           </Container>
           {/* Background decoration */}
@@ -120,11 +121,11 @@ const OnlinePage = () => {
               gutterBottom
               color="text.primary"
             >
-              Choose Your Delivery Platform
+              Pilih Platform Pengiriman Favoritmu
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 6 }}>
-              Select from our trusted delivery partners below. Fast delivery,
-              fresh food, and great service guaranteed.
+              Pesan Bakmi Jambi Guapatlu lewat partner pengiriman terpercaya.
+              Pengantaran cepat, makanan tetap hangat, dan layanan yang ramah.
             </Typography>
 
             <Grid container spacing={4} justifyContent="center">
@@ -166,7 +167,7 @@ const OnlinePage = () => {
                       color="text.secondary"
                       gutterBottom
                     >
-                      Fast delivery in 30-45 minutes
+                      Perkiraan pengantaran 30–45 menit
                     </Typography>
                     <Box
                       sx={{
@@ -180,12 +181,13 @@ const OnlinePage = () => {
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
                       >
-                        <AccessTimeIcon fontSize="small" /> 30-45 min
+                        <AccessTimeIcon fontSize="small" /> 30–45 menit
                       </Box>
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
                       >
-                        <TwoWheelerIcon fontSize="small" /> Free delivery
+                        <TwoWheelerIcon fontSize="small" /> Biaya antar sesuai
+                        aplikasi
                       </Box>
                     </Box>
                     <Button
@@ -246,7 +248,7 @@ const OnlinePage = () => {
                       color="text.secondary"
                       gutterBottom
                     >
-                      Quick delivery in 25-40 minutes
+                      Perkiraan pengantaran 25–40 menit
                     </Typography>
                     <Box
                       sx={{
@@ -260,12 +262,13 @@ const OnlinePage = () => {
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
                       >
-                        <AccessTimeIcon fontSize="small" /> 25-40 min
+                        <AccessTimeIcon fontSize="small" /> 25–40 menit
                       </Box>
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
                       >
-                        <StarIcon fontSize="small" /> Top rated
+                        <StarIcon fontSize="small" /> Rating tinggi dari
+                        pelanggan
                       </Box>
                     </Box>
                     <Button
@@ -307,7 +310,7 @@ const OnlinePage = () => {
               gutterBottom
               sx={{ mb: 6 }}
             >
-              Delivery Information
+              Info Pengiriman
             </Typography>
             <Grid container spacing={4}>
               <Grid size={{ xs: 12, md: 4 }}>

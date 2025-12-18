@@ -62,6 +62,23 @@ const LeaderboardPage = () => {
     fetchLeaderboard();
   }, []);
 
+  const getHallOfFameTitle = (rank: number) => {
+    switch (rank) {
+      case 1:
+        return "Raja Bakmi Jambi";
+      case 2:
+        return "Sultan Kuah Jambi";
+      case 3:
+        return "Jawara Sambal Nagih";
+      case 4:
+        return "Bintang Loyal Guapatlu";
+      case 5:
+        return "Pahlawan Bundling Bakmi";
+      default:
+        return "";
+    }
+  };
+
   const topThree = leaderboard.slice(0, 3);
   const runnersUp = leaderboard.slice(3, 10);
 
@@ -254,7 +271,7 @@ const LeaderboardPage = () => {
                           {user.name}
                         </Typography>
                         <Chip
-                          label={user.badge}
+                          label={getHallOfFameTitle(user.rank) || user.badge}
                           size="small"
                           sx={{
                             bgcolor: user.badgeColor,
@@ -317,13 +334,18 @@ const LeaderboardPage = () => {
                         {user.name}
                       </Typography>
                       <Chip
-                        label={user.badge}
+                        label={
+                          user.rank <= 5 && getHallOfFameTitle(user.rank)
+                            ? getHallOfFameTitle(user.rank)
+                            : user.badge
+                        }
                         size="small"
                         sx={{
                           bgcolor: user.badgeColor,
                           color: "white",
                           fontSize: "0.7rem",
                           height: 20,
+                          mt: 0.5,
                         }}
                       />
                     </Box>

@@ -104,10 +104,10 @@ const RewardsTeaser = () => {
                 sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
               >
                 <Typography variant="body2" color="text.secondary">
-                  {Math.round((progress / 100) * 1000)} Poin
+                  {Math.round((progress / 100) * 100)} Poin
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Gratis Bakmi (1000 Poin)
+                  Gratis Bakmi (100 Poin)
                 </Typography>
               </Box>
               <Box sx={{ position: "relative" }}>

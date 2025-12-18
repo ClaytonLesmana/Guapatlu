@@ -34,8 +34,8 @@ const Footer = () => {
               sx={{ height: 60, width: "auto", mb: 2 }}
             />
             <Typography variant="body2" color="grey.400">
-              Premium street-food vibe. Fresh ingredients, bold flavors, and a
-              community that loves food.
+              Dari dapur ke mangkuk. Rasa Jambi yang bikin balik lagi. Fresh
+              ingredients. Bold flavors. No shortcuts.
             </Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 4 }}>
