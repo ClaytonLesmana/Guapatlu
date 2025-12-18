@@ -1,12 +1,19 @@
-import * as React from 'react';
-import Document, { Html, Head, Main, NextScript, DocumentProps, DocumentContext } from 'next/document';
-import createEmotionServer from '@emotion/server/create-instance';
-import { AppType } from 'next/app';
-import theme from '../theme';
-import createCache from '@emotion/cache';
+import * as React from "react";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentProps,
+  DocumentContext,
+} from "next/document";
+import createEmotionServer from "@emotion/server/create-instance";
+import { AppType } from "next/app";
+import theme from "../theme";
+import createCache from "@emotion/cache";
 
 function createEmotionCache() {
-  return createCache({ key: 'css', prepend: true });
+  return createCache({ key: "css", prepend: true });
 }
 
 interface MyDocumentProps extends DocumentProps {
@@ -15,7 +22,7 @@ interface MyDocumentProps extends DocumentProps {
 
 export default function MyDocument(props: MyDocumentProps) {
   return (
-    <Html lang="en">
+    <Html lang="id">
       <Head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
@@ -65,7 +72,11 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: React.ComponentType<React.ComponentProps<AppType> & { emotionCache?: any }>) =>
+      enhanceApp: (
+        App: React.ComponentType<
+          React.ComponentProps<AppType> & { emotionCache?: any }
+        >
+      ) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;
         },
@@ -77,7 +88,7 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      data-emotion={`${style.key} ${style.ids.join(" ")}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}

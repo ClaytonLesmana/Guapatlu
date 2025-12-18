@@ -42,7 +42,8 @@ const HeroSection = () => {
                   mb: 2,
                 }}
               >
-                Bakmi Jambi Asli <br />
+                Bakmi Jambi Asli di Kelapa Gading
+                <br />
                 <Box
                   component="span"
                   sx={{
@@ -55,9 +56,8 @@ const HeroSection = () => {
                     },
                   }}
                 >
-                  Rasa Khas
-                </Box>{" "}
-                dari Sumatra
+                  Rasa Khas Jambi
+                </Box>
               </Typography>
               <Typography
                 variant="h6"
@@ -68,8 +68,9 @@ const HeroSection = () => {
                   maxWidth: "90%",
                 }}
               >
-                Mie kenyal, minyak hitam gurih, topping ayam smoky, dan sambal
-                pedas segar. Pengalaman bakmi yang beda total dari bakmi biasa.
+                Spesialis bakmi Jambi non-halal di Kelapa Gading, Jakarta
+                Utara. Mie kenyal dengan minyak hitam gurih, topping babi
+                spesial, plus sambal pedas segar yang bikin nagih.
               </Typography>
             </Box>
 

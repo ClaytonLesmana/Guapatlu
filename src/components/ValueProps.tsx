@@ -25,15 +25,57 @@ const testimonials = [
   },
   {
     id: 3,
-    text: "Rasanya beda dari bakmi lain. Ayam smoky-nya juara, sambalnya fresh banget!",
+    text: "Rasanya beda dari bakmi lain. Daging babinya juicy, sambalnya fresh banget!",
     author: "Budi, Pengusaha",
     rating: "⭐⭐⭐⭐⭐ Best Bakmi in Town",
   },
   {
     id: 4,
-    text: "Sudah langganan 2 tahun! Konsisten enak, porsi pas, harga terjangkau.",
+    text: "Sudah langganan dari pas buka Konsisten enak, porsi pas, harga terjangkau.",
     author: "Dewi, Ibu Rumah Tangga",
     rating: "⭐⭐⭐⭐⭐ Loyal Customer",
+  },
+  {
+    id: 5,
+    text: "Makanannya enak banget. Pas buat kamu yang lagi cari bakmi babi. Sering pesan paket bundling biar dapat bakso babi goreng juga.",
+    author: "Silvy H.",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
+  },
+  {
+    id: 6,
+    text: "Bakmi non-halal dengan kuah berisi daging babi cincang, unik dan enak. Pesan bakmi best seller, mienya kecil dan kenyal. Tempatnya bersih, pelayanannya cepat, dan parkir cukup luas di pinggir jalan Kelapa Gading.",
+    author: "Titan 10",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
+  },
+  {
+    id: 7,
+    text: "Suka banget sama kuahnya, gurih dan comforting. Tempatnya bersih, servis ramah, dan owner-nya friendly. Pasti balik lagi ke sini.",
+    author: "Stephanie Mirella",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
+  },
+  {
+    id: 8,
+    text: "Varian bakmi baru yang wajib kamu coba! Kuah dan sambalnya bikin beda dari bakmi lain.",
+    author: "Xiao Lim",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
+  },
+  {
+    id: 9,
+    text: "Mienya kenyal dan berbumbu, sambalnya nagih, dan topping babinya mantap. Semua menunya bikin ketagihan.",
+    author: "Hendri Johnathan, Food Reviewer",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
+  },
+  {
+    id: 10,
+    text: "Bakmi Jambi autentik yang susah dicari tandingannya. Dari mie lebar sampai mie hijau bayam, semua dibuat handmade dan disajikan dengan kuah daging babi cincang serta bakso yang khas.",
+    author: "Review Pelanggan",
+    rating: "⭐⭐⭐⭐⭐ Bakmi Jambi Autentik",
+  },
+  {
+    id: 11,
+    text: "Lagi pengin sesuatu yang hangat, rich, dan berkesan? Bakmi Jambi di Guapatlu jawabannya. Bangga banget ada bakmi Jambi seenak ini di Kelapa Gading.",
+    author: "Levina JV",
+    rating: "⭐⭐⭐⭐⭐ 5/5 Bintang",
   },
 ];
 

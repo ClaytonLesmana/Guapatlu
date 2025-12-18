@@ -69,7 +69,7 @@ const AboutBakmi = () => {
                 transition: "all 0.6s ease-out",
               }}
             >
-              What is Bakmi Jambi?
+              Apa Itu Bakmi Jambi?
             </Typography>
             <Typography
               variant="h3"
@@ -82,7 +82,7 @@ const AboutBakmi = () => {
                 transition: "all 0.6s ease-out 0.1s",
               }}
             >
-              Lebih dari Sekadar Mie
+              Bakmi Jambi Khas di Kelapa Gading
             </Typography>
             <Typography
               variant="body1"
@@ -95,10 +95,11 @@ const AboutBakmi = () => {
                 transition: "all 0.6s ease-out 0.2s",
               }}
             >
-              Bakmi Jambi adalah mie tradisional khas Jambi, Indonesia.
-              Teksturnya lebih kenyal, disajikan dengan minyak hitam gurih
-              berbahan kecap asin dan minyak bawang, ditambah daging ayam
-              cincang, char siu-style ayam merah, pangsit, dan sambal khas.
+              Bakmi Jambi adalah mie tradisional khas Jambi, Indonesia, yang
+              kini bisa kamu nikmati di Kelapa Gading, Jakarta Utara. Teksturnya
+              lebih kenyal, disajikan dengan minyak hitam gurih berbahan kecap
+              asin dan minyak bawang, ditambah topping babi cincang, chasio,
+              siobak, pangsit, dan sambal khas.
             </Typography>
 
             <Box sx={{ mt: 3 }}>

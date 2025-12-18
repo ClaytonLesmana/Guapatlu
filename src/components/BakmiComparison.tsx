@@ -125,7 +125,7 @@ const BakmiComparison = () => {
                     }
                     sx={{ transition: "color 0.3s ease" }}
                   >
-                    Topping ayam cincang + ayam merah
+                    Topping babi cincang, chasio, dan siobak
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
