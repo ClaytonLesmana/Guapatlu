@@ -99,7 +99,7 @@ const Footer = () => {
                 color="secondary"
                 aria-label="whatsapp"
                 component="a"
-                href="https://wa.me/6285777773839"
+                href="https://api.whatsapp.com/send?phone=6285777773839"
                 target="_blank"
                 rel="noopener noreferrer"
               >

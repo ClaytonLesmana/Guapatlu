@@ -424,7 +424,7 @@ const OnlinePage = () => {
             </Button> */}
               <Button
                 variant="contained"
-                href="https://wa.me/6285777773839"
+                href="https://api.whatsapp.com/send?phone=6285777773839"
                 target="_blank"
                 startIcon={<WhatsAppIcon />}
                 sx={{
