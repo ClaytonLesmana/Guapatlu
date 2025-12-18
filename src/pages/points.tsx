@@ -183,7 +183,8 @@ const PointsPage = () => {
             {/* Background decoration */}
             <Box
               component="img"
-              src="/Kuah Jambi.jpg"
+              src="/duo platter.png"
+              alt="Ilustrasi platter daging babi Guapatlu sebagai latar belakang"
               sx={{
                 position: "absolute",
                 top: 0,

@@ -132,6 +132,7 @@ const LeaderboardPage = () => {
           <Box
             component="img"
             src="/Kuah Jambi.jpg"
+            alt="Kuah bakmi khas Jambi sebagai latar belakang"
             sx={{
               position: "absolute",
               top: 0,

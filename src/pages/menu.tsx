@@ -64,7 +64,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    id: 4,
+    id: 2,
     name: "Lapchiong",
     briefDescription:
       "Lapchiong babi manis-gurih yang bikin bakmi makin mantap.",
@@ -78,7 +78,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 5,
+    id: 3,
     name: "Siomay Babi Udang (Isi 2)",
     briefDescription:
       "Siomay homemade isi babi dan udang yang lembut dan juicy.",
@@ -92,7 +92,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 6,
+    id: 4,
     name: "KULIT PANGSIT GORENG",
     briefDescription: "Kulit pangsit goreng super renyah dan gurih.",
     detailedDescription:
@@ -105,7 +105,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 7,
+    id: 5,
     name: "PANGSIT REBUS (4PC)",
     briefDescription: "Pangsit rebus babi udang dengan kuah gurih nagih.",
     detailedDescription:
@@ -118,7 +118,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 8,
+    id: 6,
     name: "Telor Omega Kecap (1pc)",
     briefDescription: "Telur omega kecap gurih dengan tekstur padat.",
     detailedDescription:
@@ -131,7 +131,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 9,
+    id: 7,
     name: "KUAH JAMBI ISI DAGING",
     briefDescription: "Kuah kaldu khas Jambi yang kaya rasa dan isian.",
     detailedDescription:
@@ -144,7 +144,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 10,
+    id: 8,
     name: "SATE BABI GUAPATLU (1pc)",
     briefDescription: "Sate babi juicy dengan aroma bakaran menggoda.",
     detailedDescription:
@@ -157,7 +157,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 18,
+    id: 9,
     name: "Nasi Campur",
     briefDescription:
       "Nasi campur khas Jambi dengan pilihan daging babi gurih, manis, dan crispy.",
@@ -171,7 +171,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 11,
+    id: 10,
     name: "Bakso Goreng",
     briefDescription: "Bakso goreng crispy di luar, lembut di dalam.",
     detailedDescription:
@@ -184,7 +184,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 12,
+    id: 11,
     name: "Liang Teh",
     briefDescription: "Liang teh herbal segar dan menenangkan.",
     detailedDescription:
@@ -197,7 +197,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 13,
+    id: 12,
     name: "Susu Kacang",
     briefDescription: "Susu kacang homemade creamy dan segar.",
     detailedDescription:
@@ -210,7 +210,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 14,
+    id: 13,
     name: "Paket Bakmi Set + 1 Bakmi Polos",
     briefDescription: "Paket hemat 1 set bakmi lengkap + 1 bakmi polos",
     detailedDescription:
@@ -223,7 +223,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 15,
+    id: 14,
     name: "Paket Bakmi Set + 2pcs Bakso Goreng",
     briefDescription: "Bakmi set lengkap dengan tambahan bakso goreng crispy.",
     detailedDescription:
@@ -236,7 +236,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 16,
+    id: 15,
     name: "Paket Bakmi Set + 2pcs Siomay",
     briefDescription: "Bakmi set dengan siomay babi udang hangat.",
     detailedDescription:
@@ -249,7 +249,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 17,
+    id: 16,
     name: "Chasio Topping",
     briefDescription: "Chasio babi panggang manis-gurih khas Tionghoa.",
     detailedDescription:
@@ -262,7 +262,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 18,
+    id: 17,
     name: "Chasio + Siobak",
     briefDescription: "Perpaduan chasio juicy dan siobak crispy.",
     detailedDescription:
@@ -273,7 +273,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 19,
+    id: 18,
     name: "Trio Pork Platter",
     briefDescription: "Platter premium berisi tiga olahan babi favorit.",
     detailedDescription:
@@ -292,7 +292,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    id: 20,
+    id: 19,
     name: "Duo Pork Platter",
     briefDescription: "Platter dua olahan babi pilihan.",
     detailedDescription:
@@ -310,7 +310,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    id: 21,
+    id: 20,
     name: "Telor 1/2 Matang",
     briefDescription: "Telur setengah matang dengan kuning creamy.",
     detailedDescription:
@@ -321,7 +321,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 22,
+    id: 21,
     name: "Telor 1/2 Matang + Kopi Hitam",
     briefDescription: "Paket sarapan klasik ala kopitiam.",
     detailedDescription:
@@ -332,7 +332,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 23,
+    id: 22,
     name: "Kopi Vietnam",
     briefDescription: "Kopi Vietnam kental manis yang menyegarkan.",
     detailedDescription:
@@ -343,7 +343,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 24,
+    id: 23,
     name: "Black Coffee",
     briefDescription: "Kopi hitam murni untuk pecinta kopi sejati.",
     detailedDescription:
@@ -354,7 +354,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 25,
+    id: 24,
     name: "Jeruk Songkit",
     briefDescription: "Minuman jeruk segar dengan sentuhan herbal.",
     detailedDescription:
@@ -365,7 +365,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 26,
+    id: 25,
     name: "Es Teh",
     briefDescription: "Es teh klasik yang selalu pas.",
     detailedDescription:
@@ -376,7 +376,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 27,
+    id: 26,
     name: "Nipis Madu",
     briefDescription: "Minuman sehat jeruk nipis dan madu.",
     detailedDescription:
@@ -387,7 +387,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 28,
+    id: 27,
     name: "Le Minerale",
     briefDescription: "Air mineral kemasan Le Minerale",
     detailedDescription:
@@ -398,7 +398,7 @@ const menuItems: MenuItem[] = [
     gojekLink: "",
   },
   {
-    id: 29,
+    id: 28,
     name: "Es Kundur Jelly",
     briefDescription: "Minuman segar dengan kundur dan jelly kenyal.",
     detailedDescription:
@@ -410,7 +410,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
   },
   {
-    id: 30,
+    id: 29,
     name: "Teh Pucuk",
     briefDescription: "Teh kemasan ringan dan praktis.",
     detailedDescription:

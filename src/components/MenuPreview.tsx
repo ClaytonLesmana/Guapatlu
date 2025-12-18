@@ -13,30 +13,31 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 const featuredItems = [
   {
     id: 1,
-    name: "Bakmi Jambi Original",
+    name: "Bakmi Khas Jambi",
     description:
-      "Mie kenyal dengan topping ayam cincang, char siu merah, dan kuah kaldu terpisah.",
-    image: "/bakmi-hero.jpg",
+      "Bakmi khas Jambi dengan mie kenyal, kuah kaldu gurih, dan topping babi autentik.",
+    image: "/bakmi jhambi.jpg",
   },
   {
     id: 2,
-    name: "Bakmi Ayam Merah",
+    name: "Nasi Campur",
     description:
-      "Varian klasik dengan dominasi topping ayam merah manis gurih.",
-    image: "/bakmi-hero.jpg",
+      "Nasi campur dengan chasio manis-gurih dan siobak crispy khas Guapatlu.",
+    image: "/nasi campur.png",
   },
   {
     id: 3,
-    name: "Bakmi Pedas Level 5",
+    name: "Trio Pork Platter",
     description:
-      "Tantangan pedas untuk pecinta cabai! Gurih, pedas, bikin keringetan.",
-    image: "/bakmi-hero.jpg",
+      "Platter premium berisi tiga olahan babi favorit untuk sharing atau makan puas.",
+    image: "/trio platter.png",
   },
   {
     id: 4,
-    name: "Bakmi Pangsit",
-    description: "Lengkap dengan pangsit rebus lembut isi udang dan ayam.",
-    image: "/bakmi-hero.jpg",
+    name: "Bakso Goreng",
+    description:
+      "Bakso goreng renyah di luar dan lembut di dalam, camilan wajib pendamping bakmi.",
+    image: "/bakso goreng.jpg",
   },
 ];
 

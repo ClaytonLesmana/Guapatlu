@@ -71,7 +71,8 @@ const OnlinePage = () => {
           {/* Background decoration */}
           <Box
             component="img"
-            src="/Kuah Jambi.jpg"
+            src="/bakmi jhambi.jpg"
+            alt="Bakmi khas Jambi Guapatlu sebagai latar belakang"
             sx={{
               position: "absolute",
               top: 0,

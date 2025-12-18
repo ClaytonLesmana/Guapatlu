@@ -5,6 +5,7 @@ import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 import theme from "../theme";
 
 export default function MyApp(props: AppProps) {
@@ -19,6 +20,7 @@ export default function MyApp(props: AppProps) {
         <CssBaseline />
         <Toaster position="top-center" />
         <Component {...pageProps} />
+        <Analytics />
       </ThemeProvider>
     </AppCacheProvider>
   );
