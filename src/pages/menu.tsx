@@ -57,7 +57,7 @@ const menuItems: MenuItem[] = [
       "https://gofood.co.id/en/jakarta/restaurant/guapatlu-bakmi-a531b605-0194-4620-b0c9-0ff31bf92f0a",
     variations: [
       { name: "Mie Kecil", image: "/bakmi jhambi.jpg" },
-      { name: "Mie Lebar", image: "/bakmi lebar.jpg" },
+      { name: "Mie Lebar", image: "/bakmi-hero.jpg" },
       { name: "Mie Ijo", image: "/mie hijau.png" },
       { name: "Kwetiaw", image: "/kwetiaw.png" },
       { name: "Bihun", image: "/bihun.png" },

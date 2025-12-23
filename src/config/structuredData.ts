@@ -5,24 +5,26 @@ export const restaurantStructuredData = {
   name: "Guapatlu",
   description:
     "Bakmi Khas Jambi dengan resep turun temurun. Menyajikan mie kenyal dengan kuah gurih, daging babi cincang, bakso ikan, dan otak-otak.",
-  image: "https://guapatlu.com/logo.png",
+  image: "https://guapatlu.com/favicon.ico",
   "@id": "https://guapatlu.com",
   url: "https://guapatlu.com",
-  telephone: "+62-XXX-XXXX-XXXX", // Replace with actual phone
-  priceRange: "Rp 15.000 - Rp 150.000",
+  telephone: "+6285777773839", // Replace with actual phone
+  priceRange: "Rp 15.000 - Rp 75.000",
   servesCuisine: ["Indonesian", "Chinese", "Jambi Cuisine"],
-  acceptsReservations: "False",
+  acceptsReservations: "True",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Your Street Address", // Replace with actual address
+    streetAddress:
+      "Jl. Boulevard Raya Blok WA 2 No.25 11, RT.11/RW.15, Klp. Gading Tim., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240", // Replace with actual address
     addressLocality: "Jakarta",
     addressRegion: "DKI Jakarta",
     addressCountry: "ID",
+    postalCode: "14240",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: -6.2088, // Replace with actual coordinates
-    longitude: 106.8456,
+    latitude: -6.164684331499744, // Replace with actual coordinates
+    longitude: 106.90235172883514,
   },
   openingHoursSpecification: [
     {
@@ -36,8 +38,8 @@ export const restaurantStructuredData = {
         "Saturday",
         "Sunday",
       ],
-      opens: "10:00",
-      closes: "22:00",
+      opens: "8:00",
+      closes: "20:30",
     },
   ],
   menu: "https://guapatlu.com/menu",
@@ -46,10 +48,10 @@ export const restaurantStructuredData = {
     "@id": "https://guapatlu.com/menu",
   },
   sameAs: [
-    "https://www.instagram.com/guapatlu", // Add actual social media URLs
-    "https://www.facebook.com/guapatlu",
+    "https://www.instagram.com/guapatlu.bakmi", // Add actual social media URLs
+    "https://www.tiktok.com/@guapatlubakmi",
   ],
-  paymentAccepted: "Cash, Credit Card, Debit Card, Digital Payment",
+  paymentAccepted: "Cash, Credit Card, Debit Card, Digital Payment, QRIS",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
@@ -79,24 +81,25 @@ export const organizationStructuredData = {
   "@type": "Organization",
   name: "Guapatlu",
   url: "https://guapatlu.com",
-  logo: "https://guapatlu.com/logo.png",
+  logo: "https://guapatlu.com/favicon.ico",
   description: "Restoran Bakmi Khas Jambi dengan resep turun temurun",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Your Street Address", // Replace with actual address
+    streetAddress:
+      "Jl. Boulevard Raya Blok WA 2 No.25 11, RT.11/RW.15, Klp. Gading Tim., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240, Indonesia", // Replace with actual address
     addressLocality: "Jakarta",
     addressRegion: "DKI Jakarta",
     addressCountry: "ID",
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+62-XXX-XXXX-XXXX", // Replace with actual phone
+    telephone: "+6285777773839", // Replace with actual phone
     contactType: "customer service",
     availableLanguage: ["Indonesian", "English"],
   },
   sameAs: [
-    "https://www.instagram.com/guapatlu",
-    "https://www.facebook.com/guapatlu",
+    "https://www.instagram.com/guapatlu.bakmi", // Add actual social media URLs
+    "https://www.tiktok.com/@guapatlubakmi",
   ],
 };
 
