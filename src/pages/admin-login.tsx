@@ -10,51 +10,37 @@ import CircularProgress from "@mui/material/CircularProgress";
 import LockIcon from "@mui/icons-material/Lock";
 import toast from "react-hot-toast";
 
-/**
- * Optional Admin Login Page
- * 
- * To enable password protection:
- * 1. Set environment variable: ADMIN_PASSWORD=your-secure-password
- * 2. Users access /admin-login first, then get redirected to /admin
- * 
- * Note: This is basic protection. For production, implement proper authentication.
- */
-
 const AdminLoginPage = () => {
-  const [password, setPassword] = useState("");
+  const [pin, setPin] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!password.trim()) {
-      toast.error("Please enter a password");
+    if (!pin.trim()) {
+      toast.error("Please enter PIN");
       return;
     }
 
     setLoading(true);
 
     try {
-      // In a real implementation, this would verify against a secure backend
-      // For now, this is a simple client-side check
-      // To use this properly, create an API endpoint to verify password
-      
       const response = await fetch("/api/admin/verify-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ pin }),
       });
 
       if (response.ok) {
         // Set a session cookie or token here in production
         sessionStorage.setItem("admin_authenticated", "true");
         toast.success("Login successful!");
-        router.push("/admin");
+        router.push("/guapatlu-staff-panel");
       } else {
-        toast.error("Invalid password");
+        toast.error("Invalid PIN");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -91,11 +77,16 @@ const AdminLoginPage = () => {
             >
               <LockIcon sx={{ fontSize: 40, color: "white" }} />
             </Box>
-            <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom>
+            <Typography
+              variant="h4"
+              component="h1"
+              fontWeight="bold"
+              gutterBottom
+            >
               Admin Login
             </Typography>
             <Typography variant="body2" color="text.secondary" align="center">
-              Enter your admin password to access the admin panel
+              Masukkan PIN admin untuk mengakses panel staff
             </Typography>
           </Box>
 
@@ -103,10 +94,10 @@ const AdminLoginPage = () => {
             <TextField
               fullWidth
               type="password"
-              label="Password"
+              label="PIN"
               variant="outlined"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
               sx={{ mb: 3 }}
               autoFocus
             />
@@ -124,14 +115,19 @@ const AdminLoginPage = () => {
                 fontWeight: "bold",
               }}
             >
-              {loading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "Login"}
+              {loading ? (
+                <CircularProgress size={24} sx={{ color: "white" }} />
+              ) : (
+                "Login"
+              )}
             </Button>
           </Box>
 
           <Box sx={{ mt: 3, p: 2, bgcolor: "#fff3e0", borderRadius: 1 }}>
             <Typography variant="caption" color="text.secondary">
-              Note: This is a basic password protection. For production use, implement proper
-              authentication with sessions and secure password hashing.
+              Note: This is basic protection (PIN dari environment). Untuk
+              produksi, sebaiknya gunakan sistem autentikasi dan sesi yang lebih
+              lengkap.
             </Typography>
           </Box>
         </Paper>
@@ -141,4 +137,3 @@ const AdminLoginPage = () => {
 };
 
 export default AdminLoginPage;
-

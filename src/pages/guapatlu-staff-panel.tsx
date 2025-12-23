@@ -24,10 +24,27 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 
 const REWARD_TIERS = [
-  { points: 15, name: "Free Es Teh", description: "Redeem 15 points for a free Es Teh" },
-  { points: 30, name: "Free Pangsit", description: "Redeem 30 points for Free Pangsit (Rebus or Goreng)" },
-  { points: 60, name: "Free Bakmi Jambi + Es Teh", description: "Redeem 60 points for Free Bakmi Jambi + Es Teh" },
-  { points: 100, name: "Free Bakmi Jambi for 2 People", description: "Redeem 100 points for Bakmi Jambi for 2 People (Bring a Friend)" },
+  {
+    points: 15,
+    name: "Free Es Teh",
+    description: "Redeem 15 points for a free Es Teh",
+  },
+  {
+    points: 30,
+    name: "Free Pangsit",
+    description: "Redeem 30 points for Free Pangsit (Rebus or Goreng)",
+  },
+  {
+    points: 60,
+    name: "Free Bakmi Jambi + Es Teh",
+    description: "Redeem 60 points for Free Bakmi Jambi + Es Teh",
+  },
+  {
+    points: 100,
+    name: "Free Bakmi Jambi for 2 People",
+    description:
+      "Redeem 100 points for Bakmi Jambi for 2 People (Bring a Friend)",
+  },
 ];
 
 const AdminPage = () => {
@@ -97,9 +114,9 @@ const AdminPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           phone: phoneNumber,
-          spending: parseFloat(spending)
+          spending: parseFloat(spending),
         }),
       });
 
@@ -139,7 +156,11 @@ const AdminPage = () => {
     }
 
     if (userData.points < selectedReward) {
-      toast.error(`User needs ${selectedReward - userData.points} more points for this reward`);
+      toast.error(
+        `User needs ${
+          selectedReward - userData.points
+        } more points for this reward`
+      );
       return;
     }
 
@@ -151,16 +172,16 @@ const AdminPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           phone: phoneNumber,
-          rewardPoints: selectedReward
+          rewardPoints: selectedReward,
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        const reward = REWARD_TIERS.find(r => r.points === selectedReward);
+        const reward = REWARD_TIERS.find((r) => r.points === selectedReward);
         toast.success(`Successfully redeemed: ${reward?.name}!`, {
           duration: 4000,
           style: {
@@ -189,8 +210,16 @@ const AdminPage = () => {
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "#f5f5f5", py: 4 }}>
       <Container maxWidth="lg">
-        <Paper elevation={3} sx={{ p: 4, mb: 4, bgcolor: "#d11919", color: "white" }}>
-          <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+        <Paper
+          elevation={3}
+          sx={{ p: 4, mb: 4, bgcolor: "#d11919", color: "white" }}
+        >
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            mb={2}
+          >
             <AdminPanelSettingsIcon sx={{ fontSize: 48, mr: 2 }} />
             <Typography variant="h3" component="h1" fontWeight="bold">
               Admin Panel
@@ -201,7 +230,8 @@ const AdminPage = () => {
           </Typography>
           <Alert severity="warning" sx={{ mt: 3, bgcolor: "white" }}>
             <Typography variant="body2" fontWeight="bold">
-              This page is hidden from navigation. Access URL: /admin
+              This page is deprecated. Use /guapatlu-staff-panel as the staff
+              URL.
             </Typography>
           </Alert>
         </Paper>
@@ -217,8 +247,13 @@ const AdminPage = () => {
                     Search Customer
                   </Typography>
                 </Box>
-                
-                <Box display="flex" gap={2} alignItems="flex-start" flexDirection={{ xs: "column", sm: "row" }}>
+
+                <Box
+                  display="flex"
+                  gap={2}
+                  alignItems="flex-start"
+                  flexDirection={{ xs: "column", sm: "row" }}
+                >
                   <TextField
                     fullWidth
                     label="Phone Number"
@@ -227,7 +262,7 @@ const AdminPage = () => {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     onKeyPress={(e) => {
-                      if (e.key === 'Enter') {
+                      if (e.key === "Enter") {
                         handleSearchUser();
                       }
                     }}
@@ -237,7 +272,13 @@ const AdminPage = () => {
                     size="large"
                     onClick={handleSearchUser}
                     disabled={searchLoading}
-                    startIcon={searchLoading ? <CircularProgress size={20} /> : <SearchIcon />}
+                    startIcon={
+                      searchLoading ? (
+                        <CircularProgress size={20} />
+                      ) : (
+                        <SearchIcon />
+                      )
+                    }
                     sx={{
                       bgcolor: "#d11919",
                       "&:hover": { bgcolor: "#b91616" },
@@ -255,15 +296,27 @@ const AdminPage = () => {
           {/* User Info Display */}
           {userData && (
             <Grid size={{ xs: 12 }}>
-              <Card elevation={3} sx={{ bgcolor: "#fff3e0", border: "2px solid #d11919" }}>
+              <Card
+                elevation={3}
+                sx={{ bgcolor: "#fff3e0", border: "2px solid #d11919" }}
+              >
                 <CardContent>
-                  <Typography variant="h6" fontWeight="bold" gutterBottom color="#d11919">
+                  <Typography
+                    variant="h6"
+                    fontWeight="bold"
+                    gutterBottom
+                    color="#d11919"
+                  >
                     Customer Information
                   </Typography>
                   <Divider sx={{ mb: 3 }} />
                   <Grid container spacing={3}>
                     <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
                         Name
                       </Typography>
                       <Typography variant="h6" fontWeight="bold">
@@ -271,7 +324,11 @@ const AdminPage = () => {
                       </Typography>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
                         Phone
                       </Typography>
                       <Typography variant="h6" fontWeight="bold">
@@ -279,7 +336,11 @@ const AdminPage = () => {
                       </Typography>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
                         Total Spending
                       </Typography>
                       <Typography variant="h6" fontWeight="bold">
@@ -287,7 +348,11 @@ const AdminPage = () => {
                       </Typography>
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        gutterBottom
+                      >
                         Current Points
                       </Typography>
                       <Chip
@@ -311,9 +376,17 @@ const AdminPage = () => {
           {/* Add Points Section */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Card elevation={2} sx={{ height: "100%" }}>
-              <CardContent sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+              <CardContent
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <Box display="flex" alignItems="center" mb={3}>
-                  <AddCircleIcon sx={{ fontSize: 32, mr: 2, color: "#4caf50" }} />
+                  <AddCircleIcon
+                    sx={{ fontSize: 32, mr: 2, color: "#4caf50" }}
+                  />
                   <Typography variant="h5" fontWeight="bold">
                     Add Points
                   </Typography>
@@ -335,14 +408,19 @@ const AdminPage = () => {
                   onChange={(e) => setSpending(e.target.value)}
                   sx={{ mb: 2 }}
                   InputProps={{
-                    startAdornment: <Typography sx={{ mr: 1, color: "text.secondary" }}>IDR</Typography>,
+                    startAdornment: (
+                      <Typography sx={{ mr: 1, color: "text.secondary" }}>
+                        IDR
+                      </Typography>
+                    ),
                   }}
                 />
 
                 {spending && parseFloat(spending) > 0 && (
                   <Alert severity="success" sx={{ mb: 2 }}>
                     <Typography variant="body2">
-                      This will add <strong>{calculatePointsFromSpending()} points</strong>
+                      This will add{" "}
+                      <strong>{calculatePointsFromSpending()} points</strong>
                     </Typography>
                   </Alert>
                 )}
@@ -355,7 +433,9 @@ const AdminPage = () => {
                   size="large"
                   onClick={handleAddPoints}
                   disabled={loading || !phoneNumber || !spending}
-                  startIcon={loading ? <CircularProgress size={20} /> : <AddCircleIcon />}
+                  startIcon={
+                    loading ? <CircularProgress size={20} /> : <AddCircleIcon />
+                  }
                   sx={{
                     bgcolor: "#4caf50",
                     "&:hover": { bgcolor: "#45a049" },
@@ -372,7 +452,13 @@ const AdminPage = () => {
           {/* Redeem Reward Section */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Card elevation={2} sx={{ height: "100%" }}>
-              <CardContent sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+              <CardContent
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <Box display="flex" alignItems="center" mb={3}>
                   <RedeemIcon sx={{ fontSize: 32, mr: 2, color: "#ff9800" }} />
                   <Typography variant="h5" fontWeight="bold">
@@ -391,7 +477,9 @@ const AdminPage = () => {
                   <Select
                     value={selectedReward}
                     label="Select Reward"
-                    onChange={(e) => setSelectedReward(e.target.value as number)}
+                    onChange={(e) =>
+                      setSelectedReward(e.target.value as number)
+                    }
                   >
                     {REWARD_TIERS.map((reward) => (
                       <MenuItem key={reward.points} value={reward.points}>
@@ -402,30 +490,52 @@ const AdminPage = () => {
                 </FormControl>
 
                 {selectedReward && (
-                  <Paper sx={{ p: 2, mb: 2, bgcolor: "#f5f5f5", border: "1px solid #e0e0e0" }}>
-                    <Typography variant="body2" color="text.secondary" gutterBottom>
+                  <Paper
+                    sx={{
+                      p: 2,
+                      mb: 2,
+                      bgcolor: "#f5f5f5",
+                      border: "1px solid #e0e0e0",
+                    }}
+                  >
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      gutterBottom
+                    >
                       Selected Reward:
                     </Typography>
                     <Typography variant="h6" fontWeight="bold" gutterBottom>
-                      {REWARD_TIERS.find(r => r.points === selectedReward)?.name}
+                      {
+                        REWARD_TIERS.find((r) => r.points === selectedReward)
+                          ?.name
+                      }
                     </Typography>
                     <Typography variant="body2" sx={{ mb: 1 }}>
-                      {REWARD_TIERS.find(r => r.points === selectedReward)?.description}
+                      {
+                        REWARD_TIERS.find((r) => r.points === selectedReward)
+                          ?.description
+                      }
                     </Typography>
                     <Divider sx={{ my: 1.5 }} />
                     <Typography variant="body2" fontWeight="bold" gutterBottom>
                       Required Points: {selectedReward}
                     </Typography>
                     {userData && (
-                      <Typography 
-                        variant="body2" 
-                        color={userData.points >= selectedReward ? "success.main" : "error.main"}
+                      <Typography
+                        variant="body2"
+                        color={
+                          userData.points >= selectedReward
+                            ? "success.main"
+                            : "error.main"
+                        }
                         fontWeight="bold"
                       >
-                        {userData.points >= selectedReward 
+                        {userData.points >= selectedReward
                           ? `✓ Customer has enough points (${userData.points} points)`
-                          : `✗ Needs ${selectedReward - userData.points} more points`
-                        }
+                          : `✗ Needs ${
+                              selectedReward - userData.points
+                            } more points`}
                       </Typography>
                     )}
                   </Paper>
@@ -438,8 +548,14 @@ const AdminPage = () => {
                   variant="contained"
                   size="large"
                   onClick={handleRedeemReward}
-                  disabled={loading || !userData || (userData && userData.points < selectedReward)}
-                  startIcon={loading ? <CircularProgress size={20} /> : <RedeemIcon />}
+                  disabled={
+                    loading ||
+                    !userData ||
+                    (userData && userData.points < selectedReward)
+                  }
+                  startIcon={
+                    loading ? <CircularProgress size={20} /> : <RedeemIcon />
+                  }
                   sx={{
                     bgcolor: "#ff9800",
                     "&:hover": { bgcolor: "#f57c00" },
@@ -464,12 +580,15 @@ const AdminPage = () => {
                 <Grid container spacing={2}>
                   {REWARD_TIERS.map((reward, index) => (
                     <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-                      <Paper 
+                      <Paper
                         elevation={selectedReward === reward.points ? 3 : 1}
-                        sx={{ 
-                          p: 2.5, 
+                        sx={{
+                          p: 2.5,
                           textAlign: "center",
-                          border: selectedReward === reward.points ? "2px solid #d11919" : "1px solid #e0e0e0",
+                          border:
+                            selectedReward === reward.points
+                              ? "2px solid #d11919"
+                              : "1px solid #e0e0e0",
                           transition: "all 0.3s ease",
                           height: "100%",
                           display: "flex",
@@ -477,22 +596,33 @@ const AdminPage = () => {
                           "&:hover": {
                             boxShadow: 3,
                             transform: "translateY(-2px)",
-                          }
+                          },
                         }}
                       >
                         <Chip
                           label={`${reward.points} Points`}
                           color="primary"
-                          sx={{ 
-                            mb: 1.5, 
+                          sx={{
+                            mb: 1.5,
                             fontWeight: "bold",
-                            bgcolor: selectedReward === reward.points ? "#d11919" : undefined,
+                            bgcolor:
+                              selectedReward === reward.points
+                                ? "#d11919"
+                                : undefined,
                           }}
                         />
-                        <Typography variant="body1" fontWeight="bold" gutterBottom>
+                        <Typography
+                          variant="body1"
+                          fontWeight="bold"
+                          gutterBottom
+                        >
                           {reward.name}
                         </Typography>
-                        <Typography variant="caption" color="text.secondary" sx={{ mt: "auto" }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          sx={{ mt: "auto" }}
+                        >
                           {reward.description}
                         </Typography>
                       </Paper>
@@ -509,4 +639,3 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
-
