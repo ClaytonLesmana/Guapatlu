@@ -177,13 +177,13 @@ const RegisterPage = () => {
                       </Typography>
                     </Box>
                     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                      <CheckCircleIcon
+                      {/* <CheckCircleIcon
                         color="success"
                         sx={{ mr: 2, fontSize: 28 }}
-                      />
-                      <Typography variant="h6">
+                      /> */}
+                      {/* <Typography variant="h6">
                         Hadiah spesial ulang tahun
-                      </Typography>
+                      </Typography> */}
                     </Box>
                     <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                       <CheckCircleIcon

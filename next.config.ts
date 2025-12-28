@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
@@ -12,11 +11,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole:
       process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
-  },
-  experimental: {
-    turbo: {
-      root: path.resolve(__dirname),
-    },
   },
 };
 

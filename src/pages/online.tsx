@@ -330,10 +330,10 @@ const OnlinePage = () => {
                   <AccessTimeIcon sx={{ color: "#d11919", fontSize: 30 }} />
                 </Box>
                 <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                  Quick Delivery
+                  Pengiriman Cepat
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Average delivery time 30-45 minutes
+                  Waktu pengiriman rata-rata 30-45 menit
                 </Typography>
               </Grid>
               <Grid size={{ xs: 12, md: 4 }}>
@@ -353,10 +353,10 @@ const OnlinePage = () => {
                   <SecurityIcon sx={{ color: "#d11919", fontSize: 30 }} />
                 </Box>
                 <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                  Safe & Hygienic
+                  Aman & Higienis
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Contactless delivery with safety protocols
+                  Pengiriman tanpa kontak dengan protokol keamanan
                 </Typography>
               </Grid>
               <Grid size={{ xs: 12, md: 4 }}>
@@ -378,10 +378,10 @@ const OnlinePage = () => {
                   />
                 </Box>
                 <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                  Fresh & Hot
+                  Segar & Hangat
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Food prepared fresh and delivered hot
+                  Makanan disiapkan segar dan diantarkan dalam keadaan hangat
                 </Typography>
               </Grid>
             </Grid>
@@ -397,11 +397,11 @@ const OnlinePage = () => {
             }}
           >
             <Typography variant="h5" fontWeight="bold" gutterBottom>
-              Need Help with Your Order?
+              Butuh Bantuan dengan Pesanan Anda?
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-              Having trouble with the delivery apps? Contact us directly and
-              we'll help you place your order.
+              Mengalami kendala dengan aplikasi pengiriman? Hubungi kami secara
+              langsung dan kami akan membantu Anda melakukan pemesanan.
             </Typography>
             <Box
               sx={{
